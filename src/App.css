@@ -13,9 +13,8 @@ body{
 }
 
 .area{
-  height:auto;
   flex: 1;
-  background-color: aqua;
+  background-color: rgb(16, 122, 122);
 }
 
 .content{
