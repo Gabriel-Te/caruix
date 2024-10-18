@@ -1,9 +1,13 @@
 import styles from './MainPage.module.css'
-
+import CardItem from '../components/CardItem';
 
 function MainPage() {
   return (
-    <p>Main Page</p>
+    <div className={styles.box}>
+      <CardItem/>
+      <CardItem/>
+      <CardItem/>
+    </div>
   )
 }
 

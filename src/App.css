@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
 p, h1, h2, h3 , h4{
   margin: 0;
   padding: 0;
@@ -14,10 +17,10 @@ body{
 
 .area{
   flex: 1;
-  background-color: rgb(16, 122, 122);
+  background-color: rgb(228, 228, 228);
 }
 
 .content{
   display: flex;
-  height: calc(100vh - 42px);
+  height: calc(100vh - 71px);
 }
