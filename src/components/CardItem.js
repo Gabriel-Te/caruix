@@ -1,14 +1,18 @@
 import styles from './CardItem.module.css'
 import img from "../img/exampleimage.webp"
 
-function CardItem() {
+function CardItem(props) {
   return (
     <div className={styles.card}>
-        <img src={img} alt="image" />
-        <h2></h2>
-        <p>Omega</p>
-        <p>#678950</p>
-        <p>for sale</p>
+      <a href="">
+      <img src={img} alt="image" />
+      <div className={styles.cardtext}>
+        <h2>{props.brand}</h2>
+        <p>{props.model}</p>
+        <p>{props.idNum}</p>
+        <p>{props.status}</p>
+      </div>
+      </a>
     </div>
   )
 }

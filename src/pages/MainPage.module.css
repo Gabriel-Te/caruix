@@ -2,8 +2,8 @@
     margin: 20px;
     flex: 1;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax( 200px, 30%));
-    gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax( 180px, 20%));
+    gap: 20px;
     justify-content: center;
 
 }
