@@ -5,6 +5,7 @@
 /.pnp
 .pnp.js
 exampleimage.webp
+.env
 
 # testing
 /coverage
