@@ -1,34 +1,38 @@
 
 
 .card{
-    background-color: rgb(132, 165, 177);
-    padding: 0 0 10px 0;
-
+    background-color: rgb(162, 167, 168);
+    padding: 10px;
 }
 
 .cardtext{
-    margin: 0 20px;
+    margin: 0 10px;
+    flex-grow: 1;
 }
 
 .card img{
     width: 100%;
-    
+    object-fit: contain;
 }
 
 .card a{
     text-decoration: none;
-    color: rgb(26, 38, 48);
+    color: rgb(53, 53, 53);
+}
+
+.card b{
+    font-weight: 800;
+    color: rgb(53, 53, 53);
 }
 
 .card h2{
     font-family: "Roboto", sans-serif;
-    font-weight: 800;
-    font-size: 3.0vh;
+    font-weight: 500;
+    font-size: 20px;
 }
 
 .card p{
     font-family: "Roboto", sans-serif;
     font-weight: 500;
-    font-size: 2.0vh;
-
+    font-size: 15px;
 }

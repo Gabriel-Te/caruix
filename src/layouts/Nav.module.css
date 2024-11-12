@@ -5,7 +5,7 @@ nav {
     display: flex;
     flex-direction: column;
     width: 250px;
-    background-color: rgb(108, 142, 148);
+    background-color: rgb(115, 118, 119);
 }
 
 .links{
@@ -13,14 +13,14 @@ nav {
     font-weight: 700;
     font-style: normal;
     text-decoration: none;
-    color: rgb(58, 86, 112);
+    color: rgb(147, 148, 148);
     text-align: center;
-    background-color: rgb(204, 234, 236);
+    background-color: rgb(37, 37, 37);
     margin: 10px 10px;
     padding: 14px 0;
     border-radius: 5px;
 }
 
 .links.active{
-    color: rgb(153, 163, 173);
+    color: rgb(248, 248, 248);
 }

@@ -4,16 +4,18 @@ import img from "../img/exampleimage.webp"
 function CardItem(props) {
   return (
     <div className={styles.card}>
+
       <a href="">
       <img src={img} alt="image" />
       <div className={styles.cardtext}>
-        <h2>{props.brand}</h2>
-        <p>{props.model}</p>
+        <h2><b>{props.brand}</b> {props.model}</h2>
         <p>{props.idNum}</p>
         <p>{props.status}</p>
       </div>
       </a>
+
     </div>
+    
   )
 }
 
