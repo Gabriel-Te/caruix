@@ -1,16 +1,19 @@
-const express = require('express');
-require('dotenv').config()
-const {PrismaClient} = require('@prisma/client')
-const prisma = new PrismaClient
+import express from 'express';
+import dotenv from 'dotenv'
+//const {PrismaClient} = require('@prisma/client')
+//const prisma = new PrismaClient
+import carRouter from './routers/carRouter.js'
 
 const app = express();
+dotenv.config()
+import cors from 'cors'
+app.use(cors({origin: '*'}));
 
-app.get("/", function(req, res) {
-    res.send("hello world");
-});
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
 
+app.use('/car', carRouter)
 
-
-app.listen(3000, () => {
+app.listen(3002, () => {
     console.log(`executando servidor na porta ${process.env.PORT}`)
 })
