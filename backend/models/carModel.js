@@ -23,4 +23,19 @@ const getById = async(id) => {
     }
 }
 
-export default {getAll, getById}
+const create = async(carForm) => {
+    try{
+        return await prisma.cars.create({
+            data : {
+                brand: carForm.brand,
+                model : carForm.model,
+                price: carForm.price,
+                status: carForm.status
+            }
+        })
+    }catch(error){
+        throw error
+    }
+} 
+
+export default {getAll, getById, create}
