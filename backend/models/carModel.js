@@ -36,6 +36,18 @@ const create = async(carForm) => {
     }catch(error){
         throw error
     }
-} 
+}
 
-export default {getAll, getById, create}
+const remove = async(id) => {
+    try {
+        return await prisma.cars.delete({
+            where : {
+                id : id
+            }
+        })
+    } catch (error) {
+        throw error
+    }
+}
+
+export default {getAll, getById, create, remove}
