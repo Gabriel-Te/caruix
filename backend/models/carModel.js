@@ -50,4 +50,22 @@ const remove = async(id) => {
     }
 }
 
-export default {getAll, getById, create, remove}
+const edit = async(editedCar) => {
+    try {
+        return await prisma.cars.update({
+            where: {
+                id : editedCar.id
+            },
+            data: {
+                brand: editedCar.brand,
+                model : editedCar.model,
+                price: editedCar.price,
+                status: editedCar.status
+            }
+        })
+    } catch (error) {
+        throw error
+    }
+}
+
+export default {getAll, getById, create, remove, edit}
