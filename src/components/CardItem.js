@@ -9,7 +9,7 @@ function CardItem(props) {
       <img src={img} alt="image" />
       <div className={styles.cardtext}>
         <h2><b>{props.brand}</b> {props.model}</h2>
-        <p>{props.idNum}</p>
+        <p>{props.price}</p>
         <p>{props.status}</p>
       </div>
       </a>

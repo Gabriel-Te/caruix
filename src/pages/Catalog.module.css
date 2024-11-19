@@ -1,8 +1,14 @@
 .box {
     margin: 20px ;
-
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 2fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
     justify-content: center;
+    overflow-y:auto;
+    max-height: 100vh;
 }
+
+.box::-webkit-scrollbar{
+    display: none;
+}
+

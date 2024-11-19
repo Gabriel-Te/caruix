@@ -7,8 +7,8 @@ p, h1, h2, h3 , h4{
 }
 
 body{
-  height: 100%; /* Ensure body and html are full height */
-  overflow: hidden; /* Para evitar qualquer rolagem extra */
+  height: 100%;
+  overflow: hidden;
 }
 
 .App{
@@ -18,7 +18,7 @@ body{
 
 .area{
   flex: 1;
-  background-color: rgb(54, 52, 52);
+  background-color: rgb(39, 38, 38);
 }
 
 .content{

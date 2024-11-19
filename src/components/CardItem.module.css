@@ -1,7 +1,7 @@
 
 
 .card{
-    background-color: rgb(162, 167, 168);
+    background-color: rgb(196, 196, 196);
     padding: 10px;
 }
 
@@ -22,17 +22,17 @@
 
 .card b{
     font-weight: 800;
-    color: rgb(53, 53, 53);
+    color: rgb(26, 110, 158);
 }
 
 .card h2{
     font-family: "Roboto", sans-serif;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 25px;
 }
 
 .card p{
     font-family: "Roboto", sans-serif;
     font-weight: 500;
-    font-size: 15px;
+    font-size: 20px;
 }

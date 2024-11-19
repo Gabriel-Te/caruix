@@ -1,13 +1,37 @@
 import styles from './Catalog.module.css'
-import CardItem from '../components/CardItem'
+import CardItem from '../components/CardItem.js'
+import { useEffect, useState } from 'react';
 
 function Catalog() {
-    let cars = [{ brand: "Fiat", model: "500", idNum: "#g3j390", status: "for sale" }, { brand: "Fiat", model: "500", idNum: "#g3j390", status: "for sale" }, { brand: "Fiat", model: "500", idNum: "#g3j390", status: "for sale" }, { brand: "Fiat", model: "500", idNum: "#g3j390", status: "for sale" }]
+
+    const [cars, setCars] = useState([])
+
+    const getCars = async() => {
+        try {
+            const result =
+            await fetch("http://localhost:3002/car/getAll", {
+                method: "GET",
+                headers: {
+                    "Content-Type":"application/json",
+                },
+            });
+            if(result.ok) {
+                const data = await result.json()
+                setCars(data.cars)
+            }
+            } catch (error) {
+        console.error('erro ao coletar os dados', error)
+    }}
+
+    useEffect(() => {
+        getCars()
+    }, [])
+
 
     return (
         <div className={styles.box}>
-            {cars.map((item, index) => (
-                <CardItem key={index} brand={item.brand} model={item.model} idNum={item.idNum} status={item.status} />
+            {cars.map((item) => (
+                <CardItem key={item.id} brand={item.brand} model={item.model} price={item.price} status={item.status} />
             ))}
         </div>
     )

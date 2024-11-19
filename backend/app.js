@@ -15,5 +15,5 @@ app.use(express.urlencoded({extended: true}))
 app.use('/car', carRouter)
 
 app.listen(3002, () => {
-    console.log(`executando servidor na porta ${process.env.PORT}`)
+    console.log(`executando servidor na rota http://localhost:${process.env.PORT}/`)
 })
