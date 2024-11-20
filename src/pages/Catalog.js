@@ -1,27 +1,29 @@
 import styles from './Catalog.module.css'
 import CardItem from '../components/CardItem.js'
 import { useEffect, useState } from 'react';
+import ErrorMessage from '../components/ErrorMessage.js';
 
 function Catalog() {
 
     const [cars, setCars] = useState([])
 
-    const getCars = async() => {
+    const getCars = async () => {
         try {
             const result =
-            await fetch("http://localhost:3002/car/getAll", {
-                method: "GET",
-                headers: {
-                    "Content-Type":"application/json",
-                },
-            });
-            if(result.ok) {
+                await fetch("http://localhost:3002/car/getAll", {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                });
+            if (result.ok) {
                 const data = await result.json()
                 setCars(data.cars)
             }
-            } catch (error) {
-        console.error('erro ao coletar os dados', error)
-    }}
+        } catch (error) {
+            console.error('erro ao coletar os dados', error)
+        }
+    }
 
     useEffect(() => {
         getCars()
@@ -30,9 +32,11 @@ function Catalog() {
 
     return (
         <div className={styles.box}>
-            {cars.map((item) => (
-                <CardItem key={item.id} brand={item.brand} model={item.model} price={item.price} status={item.status} />
-            ))}
+            {cars.length >= 0 ?
+                cars.map((item) => (
+                    <CardItem key={item.id} brand={item.brand} model={item.model} price={item.price} status={item.status} />
+                ))
+                : <ErrorMessage message={'wait...'}/>}
         </div>
     )
 }
