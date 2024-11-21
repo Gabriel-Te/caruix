@@ -7,34 +7,52 @@ function CreateVehicle() {
         brand: "",
         model: "",
         price: 0,
+        status: ""
     })
-
-    const [submittedValues, SetSubmittedValues] = useState(null)
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormValues({
             ...FormValues,
-            [name]: value,
+            [name]: name ==="price" ? parseInt(value) : value ,
         })
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        SetSubmittedValues(FormValues);
         setFormValues({
             brand: "",
             model: "",
             price: 0,
+            status: ""
         })
-        console.log(submittedValues)
+        console.log(FormValues)
+        sendForm(FormValues)
     }
+
+    const sendForm = async(FormValues) => {
+    try {
+    const response = await fetch('http://localhost:3002/car/create', {
+        method: "POST",
+        headers: {
+            "Content-Type" :'application/json'
+        },
+        body: JSON.stringify(FormValues)
+    })
+    if (response.ok) {
+        const data = await response.json()
+        console.log("resposta do server",data)
+    }
+} 
+    catch (error) {
+        console.log('erro ao passar os dados', error)
+    }};
 
 
 
     return (
         <div className={styles.box}>
-            <form onSubmit={handleSubmit} action="">
+            <form onSubmit={handleSubmit}>
                 <input
                     type="text"
                     name="brand"
@@ -54,6 +72,13 @@ function CreateVehicle() {
                     name='price'
                     value={FormValues.price}
                     placeholder='Preço'
+                    onChange={handleInputChange}
+                />
+                <input
+                    type="text"
+                    name='status'
+                    value={FormValues.status}
+                    placeholder='Status'
                     onChange={handleInputChange}
                 />
 
