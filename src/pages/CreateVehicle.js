@@ -53,6 +53,7 @@ function CreateVehicle() {
     return (
         <div className={styles.box}>
             <form onSubmit={handleSubmit}>
+                <p>Marca</p>
                 <input
                     type="text"
                     name="brand"
@@ -60,6 +61,7 @@ function CreateVehicle() {
                     placeholder='Marca'
                     onChange={handleInputChange}
                 />
+                <p>Modelo</p>
                 <input
                     type="text"
                     name="model"
@@ -67,13 +69,14 @@ function CreateVehicle() {
                     placeholder='Modelo'
                     onChange={handleInputChange}
                 />
+                <p>Preço</p>
                 <input
                     type="number"
                     name='price'
                     value={FormValues.price}
-                    placeholder='Preço'
                     onChange={handleInputChange}
                 />
+                <p>Status</p>
                 <input
                     type="text"
                     name='status'
@@ -82,7 +85,7 @@ function CreateVehicle() {
                     onChange={handleInputChange}
                 />
 
-                <input type="submit" value="enviar" />
+                <button type="submit">Enviar</button>
             </form>
         </div>
     )

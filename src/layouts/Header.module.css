@@ -3,7 +3,7 @@
 
 header {
     
-    background: linear-gradient(to left, rgb(110, 106, 106), #292929);
+    background-color: rgb(31, 31, 31) ;
     display: flex;
     justify-content: space-between;
     align-items: center;

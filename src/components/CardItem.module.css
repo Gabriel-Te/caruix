@@ -1,7 +1,7 @@
 
 
 .card{
-    background-color: rgb(196, 196, 196);
+    background-color: rgb(184, 184, 184);
     padding: 10px;
 }
 
@@ -17,7 +17,7 @@
 
 .card a{
     text-decoration: none;
-    color: rgb(53, 53, 53);
+    color: rgb(0, 0, 0);
 }
 
 .card b{
