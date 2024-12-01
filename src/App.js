@@ -5,6 +5,7 @@ import { Route, Routes, BrowserRouter as Router } from "react-router-dom"
 import MainPage from './pages/MainPage.js';
 import Catalog from './pages/Catalog.js';
 import CreateVehicle from './pages/CreateVehicle.js';
+import CardPressed from './pages/CardPressed.js';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
               <Route exact path='/' element={<MainPage />}></Route>
               <Route path='/catalog' element={<Catalog/>}></Route>
               <Route path='/createvehicle' element={<CreateVehicle/>}></Route>
+              <Route path='/cardpressed/:id' element={<CardPressed/>}></Route>
             </Routes>
           </div>
         </div>

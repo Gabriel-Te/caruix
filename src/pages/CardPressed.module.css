@@ -1,0 +1,31 @@
+.container{
+    background-color: rgb(184, 184, 184);
+    padding: 20px;
+}
+
+.container img{
+    width: 100%;
+}
+
+.container b{
+    font-weight: 800;
+    color: rgb(26, 110, 158);
+}
+
+.container h1{
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 55px;
+}
+
+.container h2{
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 35px;
+}
+
+.container h3{
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 30px;
+}

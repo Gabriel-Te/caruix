@@ -5,7 +5,7 @@ function CardItem(props) {
   return (
     <div className={styles.card}>
 
-      <a href="">
+    <a href={`/cardpressed/${props.id}`}>
       <img src={img} alt="image" />
       <div className={styles.cardtext}>
         <h2><b>{props.brand}</b> {props.model}</h2>

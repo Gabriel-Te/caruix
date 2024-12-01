@@ -34,9 +34,9 @@ function Catalog() {
         <div className={styles.box}>
             {cars.length >= 0 ?
                 cars.map((item) => (
-                    <CardItem key={item.id} brand={item.brand} model={item.model} price={item.price} status={item.status} />
+                    <CardItem key={item.id} id={item.id} brand={item.brand} model={item.model} price={item.price} status={item.status} />
                 ))
-                : <ErrorMessage message={'wait...'}/>}
+                : <ErrorMessage message='wait...'/>}
         </div>
     )
 }

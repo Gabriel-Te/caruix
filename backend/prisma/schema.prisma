@@ -7,8 +7,8 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model cars {
-  id     Int     @id @default(autoincrement())
+model car {
+  id     Int     @id @unique(map: "id_UNIQUE") @default(autoincrement())
   brand  String? @db.VarChar(45)
   model  String? @db.VarChar(45)
   price  Int?

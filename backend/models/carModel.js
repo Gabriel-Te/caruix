@@ -4,7 +4,7 @@ const prisma = new PrismaClient()
 
 const getAll = async() => {
     try{
-    return await prisma.cars.findMany()
+    return await prisma.car.findMany()
     }catch(error){
         console.log(error)
     }
@@ -12,7 +12,7 @@ const getAll = async() => {
 
 const getById = async(id) => {
     try {
-        return await prisma.cars.findUnique({
+        return await prisma.car.findUnique({
             where:{
                 id : id
             }
@@ -25,7 +25,7 @@ const getById = async(id) => {
 
 const create = async(carForm) => {
     try{
-        return await prisma.cars.create({
+        return await prisma.car.create({
             data : {
                 brand: carForm.brand,
                 model : carForm.model,
@@ -40,7 +40,7 @@ const create = async(carForm) => {
 
 const remove = async(id) => {
     try {
-        return await prisma.cars.delete({
+        return await prisma.car.delete({
             where : {
                 id : id
             }
@@ -52,7 +52,7 @@ const remove = async(id) => {
 
 const edit = async(editedCar) => {
     try {
-        return await prisma.cars.update({
+        return await prisma.car.update({
             where: {
                 id : editedCar.id
             },
