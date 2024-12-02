@@ -7,7 +7,8 @@ function CreateVehicle() {
         brand: "",
         model: "",
         price: 0,
-        status: ""
+        status: "",
+        image: ""
     })
 
     const handleInputChange = (e) => {
@@ -24,7 +25,8 @@ function CreateVehicle() {
             brand: "",
             model: "",
             price: 0,
-            status: ""
+            status: "",
+            image: ""
         })
         console.log(FormValues)
         sendForm(FormValues)
@@ -82,6 +84,15 @@ function CreateVehicle() {
                     name='status'
                     value={FormValues.status}
                     placeholder='Status'
+                    onChange={handleInputChange}
+                />
+                
+                <p>Imagem</p>
+                <input
+                    type="text"
+                    name='image'
+                    value={FormValues.image}
+                    placeholder='Image (only links)'
                     onChange={handleInputChange}
                 />
 

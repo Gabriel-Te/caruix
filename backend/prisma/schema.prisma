@@ -13,4 +13,5 @@ model car {
   model  String? @db.VarChar(45)
   price  Int?
   status String? @db.VarChar(45)
+  image  String? @db.VarChar(512)
 }

@@ -30,11 +30,13 @@ const create = async(carForm) => {
                 brand: carForm.brand,
                 model : carForm.model,
                 price: carForm.price,
-                status: carForm.status
+                status: carForm.status,
+                image: carForm.image
             }
         })
     }catch(error){
-        throw error
+        throw error,
+        console.log('erro ao executar isso', carForm, error)
     }
 }
 
