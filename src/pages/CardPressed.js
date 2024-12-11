@@ -33,10 +33,10 @@ function CardPressed () {
         <div className={styles.container}> 
         {car !== null ?(
             <>
-            <img src={img} alt="" />
+            <img src={car.image} alt="" />
             <h1><b>{car.brand} </b>{car.model}</h1>
             <h2>preço: {car.price}</h2>
-            <h3>status: {car.status}</h3>
+            <h3>status: {car.status == true ? "à venda" : "vendido"}</h3>
             </>
         ): <ErrorMessage message='erro ao guardar o carro'/>}
         </div>

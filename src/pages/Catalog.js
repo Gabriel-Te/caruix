@@ -34,7 +34,12 @@ function Catalog() {
         <div className={styles.box}>
             {cars.length >= 0 ?
                 cars.map((item) => (
-                    <CardItem key={item.id} image={item.image} id={item.id} brand={item.brand} model={item.model} price={item.price} status={item.status} />
+                    <CardItem key={item.id}
+                    image={item.image} id={item.id} 
+                    brand={item.brand} 
+                    model={item.model} 
+                    price={item.price} 
+                    status={item.status == true ? "à venda" : "vendido"} />
                 ))
                 : <ErrorMessage message='wait...'/>}
         </div>

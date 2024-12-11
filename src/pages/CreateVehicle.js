@@ -7,8 +7,8 @@ function CreateVehicle() {
         brand: "",
         model: "",
         price: 0,
-        status: "",
-        image: ""
+        status: "1",
+        image: null
     })
 
     const handleInputChange = (e) => {
@@ -25,10 +25,13 @@ function CreateVehicle() {
             brand: "",
             model: "",
             price: 0,
-            status: "",
+            status: "1",
             image: ""
         })
         console.log(FormValues)
+        if(FormValues.status === "1") {
+            FormValues.status = true
+        }else{FormValues.status = false}
         sendForm(FormValues)
     }
 
@@ -78,12 +81,23 @@ function CreateVehicle() {
                     value={FormValues.price}
                     onChange={handleInputChange}
                 />
-                <p>Status</p>
+                <p>Status: </p>
+
+                <p>Vendido</p>
                 <input
-                    type="text"
+                    type="radio"
                     name='status'
-                    value={FormValues.status}
-                    placeholder='Status'
+                    value="0"
+                    checked= {FormValues.status === "0"}
+                    onChange={handleInputChange}
+                />
+
+                <p>À venda</p>
+                <input
+                    type="radio"
+                    name='status'
+                    value="1"
+                    checked= {FormValues.status === "1"}
                     onChange={handleInputChange}
                 />
                 
@@ -95,6 +109,8 @@ function CreateVehicle() {
                     placeholder='Image (only links)'
                     onChange={handleInputChange}
                 />
+
+                
 
                 <button type="submit">Enviar</button>
             </form>

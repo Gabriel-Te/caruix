@@ -1,13 +1,14 @@
 
 
 .card{
-    background-color: rgb(184, 184, 184);
+    background-color: #242424;
     padding: 10px;
 }
 
 .cardtext{
     margin: 0 10px;
     flex-grow: 1;
+    
 }
 
 .card img{
@@ -17,12 +18,12 @@
 
 .card a{
     text-decoration: none;
-    color: rgb(0, 0, 0);
+    color: #c2c2c2;
 }
 
 .card b{
     font-weight: 800;
-    color: rgb(26, 110, 158);
+    color: #D4DBFA;
 }
 
 .card h2{
