@@ -1,5 +1,10 @@
 .box{
     margin: 20px;
     flex: 1;
+    overflow-y: auto;
+    max-height: 100vh;
+}
 
+.box::-webkit-scrollbar{
+    display: none;
 }

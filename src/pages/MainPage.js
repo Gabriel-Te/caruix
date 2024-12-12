@@ -47,8 +47,10 @@ function MainPage() {
 
   return (
     <div className={styles.box}>
-      <div style={{width: "40%", height: "600px", background: "#242424"}}>
+      <div style={{width: "40%", height: "600px", background: "#242424", margin: "0 0 20px 0"}}>
       <PieChart data={[sell, sold]}/>
+      </div>
+      <div style={{width: "100%", height: "600px", background: "#242424"}}>
       </div>
     </div>
   );
