@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import styles from './MainPage.module.css';
+import PieChart from '../components/PieChart.js';
 
 function MainPage() {
   const [cars, setCars] = useState([]);
@@ -46,8 +47,9 @@ function MainPage() {
 
   return (
     <div className={styles.box}>
-      <p>À venda: {sell}</p>
-      <p>Vendidos: {sold}</p>
+      <div style={{width: "40%", height: "600px", background: "#242424"}}>
+      <PieChart data={[sell, sold]}/>
+      </div>
     </div>
   );
 }
