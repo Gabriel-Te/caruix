@@ -1,7 +1,7 @@
 .container{
-    background-color: rgb(184, 184, 184);
+    background-color: #242424;
     padding: 20px;
-    
+    color: rgb(255, 255, 255);
 }
 
 .container img{
@@ -22,7 +22,7 @@
 .container h2{
     font-family: "Roboto", sans-serif;
     font-weight: 500;
-    font-size: 35px;
+    font-size: 30px;
 }
 
 .container h3{

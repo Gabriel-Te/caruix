@@ -46,6 +46,12 @@ function CardPressed() {
             getByID()
         }, [])
 
+    function formattedNumber(price) { return(
+        new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL',
+      }).format(price * 10))};
+
 
     return (
         <div className={styles.container}>
@@ -53,7 +59,7 @@ function CardPressed() {
                 <>
                     <img src={car.image} alt={`foto de um ${car.model}`} />
                     <h1><b>{car.brand} </b>{car.model}</h1>
-                    <h2>preço: {car.price}</h2>
+                    <h2>{formattedNumber(car.price)}</h2>
                     <h3>status: {car.status === true ? "à venda" : "vendido"}</h3>
                     <button onClick={() => setSureQuestion(true)}>Remover</button>
                 </>

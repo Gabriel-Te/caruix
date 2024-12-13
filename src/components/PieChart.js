@@ -40,7 +40,7 @@ function PieChart(props) {
                 text: "Veículos Disponíveis vs Vendidos",
                 color: "#FFF",
                 font:{
-                    size: 22
+                    size: 18
                 }
             }
         }

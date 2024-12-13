@@ -3,7 +3,7 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    background-color: #c4c4c4;
+    background-color: #242424;
     padding: 10px;
     border-radius: 4px;
 }
@@ -14,17 +14,17 @@
     height: 25px;
     width: 30%;
     border: none;
-    background-color: rgb(37, 37, 37);
-    color: aliceblue;
+    background-color: rgb(224, 224, 224);
+    color: rgb(0, 0, 0);
 }
 
 .box input::placeholder{
-    color: rgb(167, 167, 167);
+    color: rgb(0, 0, 0);
 }
 
 .box p{
-    margin-bottom: 2px;
-    color: rgb(17, 17, 17);
+    margin-bottom: 4px;
+    color: rgb(235, 235, 235);
     font-weight: 600;
 }
 
@@ -33,7 +33,8 @@
     padding: 10px 40px;
     font-weight: 700;
     border-radius: 4px;
-    background-color: rgba(0, 132, 255, 0.37);
+    background-color: rgb(66, 118, 167);
+    color: rgb(255, 255, 255);
 }
 
 .box button:hover{
