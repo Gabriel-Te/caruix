@@ -3,10 +3,10 @@ import { Chart as ChartJS, Tooltip, Legend, ArcElement, Title } from 'chart.js'
 
 ChartJS.register(Tooltip, Legend, ArcElement, Title);
 
-function PieChart(props) {
+function DoughnutChart(props) {
 
-    const pieChartData = {
-        labels: ["À venda", "Vendidos"],
+    const DoughnutChartData = {
+        labels: props.labels,
         datasets: [{
             label: 'Veículos',
             data: props.data,
@@ -14,10 +14,7 @@ function PieChart(props) {
                 "#FFF",
                 "#FFF"
             ],
-            backgroundColor: [
-                "#343F66",
-                "#AEBAE6"
-            ],
+            backgroundColor: props.backgroundColor,
             hoverOffset: 2
         }]
     }
@@ -31,7 +28,7 @@ function PieChart(props) {
                 labels : {
                     color: '#FFF',
                     font: {
-                        size: 15
+                        size: "20%"
                     }
                 },
             },
@@ -40,7 +37,7 @@ function PieChart(props) {
                 text: "Veículos Disponíveis vs Vendidos",
                 color: "#FFF",
                 font:{
-                    size: 18
+                    size: "25%"
                 }
             }
         }
@@ -48,9 +45,9 @@ function PieChart(props) {
 
     return (
 
-        <Doughnut  data={pieChartData} options={options} />
+        <Doughnut  data={DoughnutChartData} options={options} />
 
     )
 }
 
-export default PieChart
+export default DoughnutChart

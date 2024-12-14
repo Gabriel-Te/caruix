@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import styles from './Home.module.css';
-import PieChart from '../components/PieChart.js';
+import DoughnutChart from '../components/DoughnutChart.js';
 
 function Home() {
   const [cars, setCars] = useState([]);
@@ -47,10 +47,13 @@ function Home() {
 
   return (
     <div className={styles.box}>
-      <div style={{width: "50%", height: "300px", background: "#242424", margin: "0 0 20px 0"}}>
-      <PieChart data={[sell, sold]}/>
-      </div>
-      <div style={{width: "100%", height: "600px", background: "#242424"}}>
+      <div className={styles.customArea}>
+        <div style={{ width: "47.5%", height: "400px", background: "#242424", margin: "0 0 20px 0", padding: "10px" }}>
+          <DoughnutChart labels={["À venda:", "Vendidos:",]} data={[sell, sold]} backgroundColor={["#343F66", "#AEBAE6"]} />
+        </div>
+        <div style={{ width: "47.5%", height: "400px", background: "#242424", margin: "0 0 20px 0", padding: "10px" }}>
+          <DoughnutChart labels={["À venda:", "Vendidos:",]} data={[sell, sold]} backgroundColor={["#343F66", "#AEBAE6"]} />
+        </div>
       </div>
     </div>
   );
