@@ -6,7 +6,7 @@ import Home from './pages/Home.js';
 import Catalog from './pages/Catalog.js';
 import CreateVehicle from './pages/CreateVehicle.js';
 import CardPressed from './pages/CardPressed.js';
-s
+
 
 function App() {
   return (
