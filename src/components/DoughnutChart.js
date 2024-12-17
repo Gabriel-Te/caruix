@@ -1,5 +1,5 @@
 import { Doughnut } from 'react-chartjs-2'
-import { Chart as ChartJS, Tooltip, Legend, ArcElement, Title } from 'chart.js'
+import { Chart as ChartJS, Tooltip, Legend, ArcElement, Title, animator } from 'chart.js'
 
 ChartJS.register(Tooltip, Legend, ArcElement, Title);
 
@@ -22,6 +22,9 @@ function DoughnutChart(props) {
     const options = {
         maintainAspectRatio: false,
         responsive: true,
+        animation: {
+            duration: 0
+        },
         plugins: {
             legend: {
                 position: "bottom",
@@ -44,9 +47,7 @@ function DoughnutChart(props) {
     }
 
     return (
-
         <Doughnut  data={DoughnutChartData} options={options} />
-
     )
 }
 

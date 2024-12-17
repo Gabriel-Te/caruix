@@ -1,15 +1,29 @@
-.box{
-    max-height:100%;
-    overflow-y:auto;
+.box {
+    max-height: 100%;
+    overflow-y: auto;
     flex: 1;
 }
 
-.customArea{
-    display: flex;
+.customArea {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     margin: 20px;
-    gap: 5%;
+    gap: 20px;
 }
 
-.box::-webkit-scrollbar{
+.item50 { 
+    height: 400px;
+    background-color: #242424;
+    padding: 10px;
+}
+
+.item100 {
+    grid-column: span 2;
+    height: 400px; 
+    background-color: #242424;
+    padding: 10px;
+}
+
+.box::-webkit-scrollbar {
     display: none;
 }

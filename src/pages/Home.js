@@ -48,10 +48,13 @@ function Home() {
   return (
     <div className={styles.box}>
       <div className={styles.customArea}>
-        <div style={{ width: "47.5%", height: "400px", background: "#242424", margin: "0 0 20px 0", padding: "10px" }}>
+        <div className={styles.item50}>
           <DoughnutChart labels={["À venda:", "Vendidos:",]} data={[sell, sold]} backgroundColor={["#343F66", "#AEBAE6"]} />
         </div>
-        <div style={{ width: "47.5%", height: "400px", background: "#242424", margin: "0 0 20px 0", padding: "10px" }}>
+        <div className={styles.item50}>
+          <DoughnutChart labels={["À venda:", "Vendidos:",]} data={[sell, sold]} backgroundColor={["#343F66", "#AEBAE6"]} />
+        </div>
+        <div className={styles.item100}>
           <DoughnutChart labels={["À venda:", "Vendidos:",]} data={[sell, sold]} backgroundColor={["#343F66", "#AEBAE6"]} />
         </div>
       </div>

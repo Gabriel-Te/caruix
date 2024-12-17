@@ -1,13 +1,13 @@
 import styles from './AdviceMessage.module.css'
 
-function AdviceMessage({ message, buttontext1, buttontext2, onConfirm, onCancel }) {
+function AdviceMessage(props) {
     return (
         <div className={styles.overlay}>
             <div className={styles.modal}>
-                <p>{message}</p>
+                <p>{props.message}</p>
                 <div>
-                    <button onClick={onConfirm}>{buttontext1}</button>
-                    <button onClick={onCancel}>{buttontext2}</button>
+                    <button onClick={props.onConfirm}>{props.buttontext1}</button>
+                    <button onClick={props.onCancel}>{props.buttontext2}</button>
                 </div>
             </div>
         </div>
