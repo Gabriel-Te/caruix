@@ -1,11 +1,13 @@
 import styles from './CardItem.module.css'
 
 function CardItem(props) {
-      function formattedNumber(price) { return(
+      function formattedNumber(price) { 
+        return(
           new Intl.NumberFormat('pt-BR', {
           style: 'currency',
           currency: 'BRL',
-        }).format(price * 10))};
+        }).format(price * 10)
+      )};
   
   return (
     <div className={styles.card}>

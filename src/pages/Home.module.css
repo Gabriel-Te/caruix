@@ -1,8 +1,9 @@
 .box {
     max-height: 100%;
     overflow-y: auto;
-    flex: 1;
 }
+
+
 
 .customArea {
     display: grid;
@@ -11,7 +12,8 @@
     gap: 20px;
 }
 
-.item50 { 
+.item50 {
+    max-height: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,7 +21,7 @@
 }
 
 .item100 {
-    display: flex;
+        display: flex;
     justify-content: center;
     align-items: center;
     grid-column: span 2;
@@ -28,4 +30,10 @@
 
 .box::-webkit-scrollbar {
     display: none;
+}
+
+@media (max-width: 920px) {
+    .item50{
+        max-height: 200px;
+    }
 }

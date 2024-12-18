@@ -31,7 +31,7 @@ function DoughnutChart(props) {
                 labels : {
                     color: '#FFF',
                     font: {
-                        size:18
+                        size:16
                     }
                 },
             },
@@ -40,7 +40,7 @@ function DoughnutChart(props) {
                 text: "Veículos Disponíveis vs Vendidos",
                 color: "#FFF",
                 font:{
-                    size: 18
+                    size: 16
                 }
             }
         }
