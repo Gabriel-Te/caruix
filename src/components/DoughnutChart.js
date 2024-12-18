@@ -1,5 +1,5 @@
 import { Doughnut } from 'react-chartjs-2'
-import { Chart as ChartJS, Tooltip, Legend, ArcElement, Title, animator } from 'chart.js'
+import { Chart as ChartJS, Tooltip, Legend, ArcElement, Title,} from 'chart.js'
 
 ChartJS.register(Tooltip, Legend, ArcElement, Title);
 
@@ -20,7 +20,7 @@ function DoughnutChart(props) {
     }
 
     const options = {
-        maintainAspectRatio: false,
+        maintainAspectRatio: true,
         responsive: true,
         animation: {
             duration: 0
@@ -31,7 +31,7 @@ function DoughnutChart(props) {
                 labels : {
                     color: '#FFF',
                     font: {
-                        size: "20%"
+                        size:18
                     }
                 },
             },
@@ -40,7 +40,7 @@ function DoughnutChart(props) {
                 text: "Veículos Disponíveis vs Vendidos",
                 color: "#FFF",
                 font:{
-                    size: "25%"
+                    size: 18
                 }
             }
         }

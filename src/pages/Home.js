@@ -55,7 +55,6 @@ function Home() {
           <DoughnutChart labels={["À venda:", "Vendidos:",]} data={[sell, sold]} backgroundColor={["#343F66", "#AEBAE6"]} />
         </div>
         <div className={styles.item100}>
-          <DoughnutChart labels={["À venda:", "Vendidos:",]} data={[sell, sold]} backgroundColor={["#343F66", "#AEBAE6"]} />
         </div>
       </div>
     </div>

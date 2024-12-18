@@ -12,16 +12,18 @@
 }
 
 .item50 { 
-    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #242424;
-    padding: 10px;
 }
 
 .item100 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     grid-column: span 2;
-    height: 400px; 
     background-color: #242424;
-    padding: 10px;
 }
 
 .box::-webkit-scrollbar {

@@ -4,7 +4,8 @@
 nav {
     display: flex;
     flex-direction: column;
-    width: 250px;
+    min-width: 250px;
+    max-width: 250px;
     background-color: #6a6f85;
 }
 
@@ -22,7 +23,7 @@ nav {
     border-radius: 2px;
 }
 
-.links.active{
+.links.activePath{
     color: rgb(255, 255, 255);
     background-color: rgb(0, 0, 0);
 }
