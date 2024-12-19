@@ -1,6 +1,6 @@
 import styles from './Catalog.module.css'
 import CardItem from '../components/CardItem.js'
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import ErrorMessage from '../components/ErrorMessage.js';
 import useCarStore from '../stores/useCarStore.js';
 
@@ -9,29 +9,9 @@ function Catalog() {
     const setCars = useCarStore((state) => state.setCars)
     const cars = useCarStore((state) => state.cars)
 
-    const getCars = async () => {
-        try {
-            const result =
-                await fetch("http://localhost:3002/car/getAll", {
-                    method: "GET",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                });
-            if (result.ok) {
-                const data = await result.json()
-                setCars(data.cars)
-            }
-        } catch (error) {
-            console.error('erro ao coletar os dados', error)
-        }
-    }
 
-    useEffect(() => {
-        getCars()
-    }, [])
 
-    console.log(cars)
+
 
 
     return (

@@ -1,29 +1,23 @@
 import { useEffect, useState } from "react"
-import { useNavigate, useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import ErrorMessage from "../components/ErrorMessage.js"
 import styles from './CardPressed.module.css'
 import AdviceMessage from "../components/AdviceMessage.js"
-
+import useCarStore from "../stores/useCarStore.js"
 
 function CardPressed() {
+    const cars = useCarStore((state) => state.cars)
     const navigate = useNavigate()
     const { id } = useParams()
+    const idInt = Number(id)
     const [car, setCar] = useState(null)
     const [sureQuestion, setSureQuestion] = useState(false)
+    const a = useCarStore((state) => state.getByID)
 
     const getByID = async () => {
-        try {
-            const result = await fetch(`http://localhost:3002/car/getById/${id}`, {
-                method: "GET",
-                headers: { "Content-Type": "application/json" }
-            })
-            if (result.ok) {
-                const data = await result.json()
-                setCar(data.carPerID)
-            }
-        } catch (error) {
-            console.log('erro ao buscar o carro', error)
-        }
+        const [car] = a(idInt)
+        setCar(car)
+        console.log(car)
     }
 
     const remove = async () => {
@@ -43,14 +37,21 @@ function CardPressed() {
 
     useEffect(
         () => {
+            if (cars.length === 0) {
+                navigate('/catalog')
+            }else{
             getByID()
+            }
         }, [])
 
-    function formattedNumber(price) { return(
-        new Intl.NumberFormat('pt-BR', {
-        style: 'currency',
-        currency: 'BRL',
-      }).format(price * 10))};
+
+    function formattedNumber(price) {
+        return (
+            new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'BRL',
+            }).format(price * 10))
+    };
 
 
     return (
