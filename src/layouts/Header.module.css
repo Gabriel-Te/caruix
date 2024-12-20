@@ -2,7 +2,6 @@
 
 
 header {
-    
     background-color: rgb(31, 31, 31) ;
     display: flex;
     justify-content: space-between;
@@ -10,8 +9,29 @@ header {
     padding: 5px 10px;
 }
 
-img{
+.imgLogo{
     width: 300px;
+}
+
+.buttonArea{
+    width: 150px;
+}
+
+.buttonArea button{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    border: none;
+    border-style: none;
+    background-color:rgba(240, 248, 255, 0);
+    color: rgb(177, 177, 177);
+    font-size: 35px;
+    cursor: pointer;
+}
+
+.links{
+    width: 150px;
 }
 
 .links a {

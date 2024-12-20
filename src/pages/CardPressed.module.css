@@ -1,9 +1,16 @@
 .container{
     background-color: #242424;
-    padding: 20px;
     color: rgb(255, 255, 255);
     overflow-y: auto;
-    max-height: 100vh;
+    max-height: 100%;
+}
+
+.container::-webkit-scrollbar{
+    display: none;
+}
+
+.carInfoArea{
+    padding: 20px;
 }
 
 .container img{
@@ -36,10 +43,11 @@
 
 .container button {
         border: none;
-        padding: 10px 40px;
+        padding: 0px 40px;
         font-weight: 700;
         border-radius: 4px;
         background-color: rgb(255, 91, 91);
+        height: 35px;
 }
 
 .container button:hover {

@@ -12,10 +12,10 @@ function CardPressed() {
     const idInt = Number(id)
     const [car, setCar] = useState(null)
     const [sureQuestion, setSureQuestion] = useState(false)
-    const a = useCarStore((state) => state.getByID)
+    const getByID = useCarStore((state) => state.getByID)
 
-    const getByID = async () => {
-        const [car] = a(idInt)
+    const getCar = async () => {
+        const [car] = getByID(idInt)
         setCar(car)
         console.log(car)
     }
@@ -40,7 +40,7 @@ function CardPressed() {
             if (cars.length === 0) {
                 navigate('/catalog')
             }else{
-            getByID()
+            getCar()
             }
         }, [])
 
@@ -50,20 +50,20 @@ function CardPressed() {
             new Intl.NumberFormat('pt-BR', {
                 style: 'currency',
                 currency: 'BRL',
-            }).format(price * 10))
+            }).format(price))
     };
 
 
     return (
         <div className={styles.container}>
             {car !== null ? (
-                <>
+                <div className={styles.carInfoArea}>
                     <img src={car.image} alt={`foto de um ${car.model}`} />
                     <h1><b>{car.brand} </b>{car.model}</h1>
                     <h2>{formattedNumber(car.price)}</h2>
                     <h3>status: {car.status === true ? "à venda" : "vendido"}</h3>
                     <button onClick={() => setSureQuestion(true)}>Remover</button>
-                </>
+                </div>
             ) : (<ErrorMessage message='erro ao guardar o carro' />)
             }
             {
