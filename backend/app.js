@@ -5,6 +5,7 @@ import dotenv from 'dotenv'
 import carRouter from './routers/carRouter.js'
 
 const app = express();
+const PORT = process.env.PORT
 dotenv.config()
 import cors from 'cors'
 app.use(cors({origin: '*'}));
@@ -14,6 +15,6 @@ app.use(express.urlencoded({extended: true}))
 
 app.use('/car', carRouter)
 
-app.listen(3002, () => {
-    console.log(`executando servidor na rota http://localhost:${process.env.PORT}/`)
+app.listen(PORT, () => {
+    console.log(`executando servidor na rota ${process.env.BASE_BACKEND_URL}`)
 })
