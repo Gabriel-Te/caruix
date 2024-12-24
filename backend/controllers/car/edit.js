@@ -3,7 +3,7 @@ import carModel from "../../models/carModel.js";
 const edit = async(req, res) => {
     try {
         const id = parseInt(req.params.id)
-        const FormCar = await {id, ...req.body.CarEdited}
+        const FormCar = await {id, ...req.body}
 
         const editedCar = await carModel.edit(FormCar)
         return res.status(200).json({

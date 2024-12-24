@@ -1,0 +1,43 @@
+.formArea{
+    margin: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #242424;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.formArea input:not([type=radio]) {
+    display: flex;
+    margin: 0 0 10px 0;
+    height: 25px;
+    width: 30%;
+    border: none;
+    background-color: rgb(224, 224, 224);
+    color: rgb(0, 0, 0);
+}
+
+.formArea input::placeholder{
+    color: rgb(0, 0, 0);
+}
+
+.formArea p{
+    margin-bottom: 4px;
+    color: rgb(235, 235, 235);
+    font-weight: 600;
+}
+
+.formArea button{
+    border: none;
+    padding: 10px 40px;
+    font-weight: 700;
+    border-radius: 4px;
+    background-color: rgb(66, 118, 167);
+    color: rgb(255, 255, 255);
+}
+
+.formArea button:hover{
+    background-color: rgba(0, 128, 255, 0.541);
+
+}

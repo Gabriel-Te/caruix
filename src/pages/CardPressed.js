@@ -15,7 +15,7 @@ function CardPressed() {
     const getByID = useCarStore((state) => state.getByID)
 
     const getCar = async () => {
-        const [car] = getByID(idInt)
+        const car = getByID(idInt)
         setCar(car)
         console.log(car)
     }
@@ -39,8 +39,8 @@ function CardPressed() {
         () => {
             if (cars.length === 0) {
                 navigate('/catalog')
-            }else{
-            getCar()
+            } else {
+                getCar()
             }
         }, [])
 
@@ -62,7 +62,14 @@ function CardPressed() {
                     <h1><b>{car.brand} </b>{car.model}</h1>
                     <h2>{formattedNumber(car.price)}</h2>
                     <h3>status: {car.status === true ? "à venda" : "vendido"}</h3>
-                    <button onClick={() => setSureQuestion(true)}>Remover</button>
+                    <button 
+                        className={styles.removeBtn} 
+                        onClick={() => setSureQuestion(true)}>Remover
+                    </button>
+                    <button
+                        className={styles.editBtn} 
+                        onClick={() => navigate(`/edit/${id}`)}>Editar
+                    </button>
                 </div>
             ) : (<ErrorMessage message='erro ao guardar o carro' />)
             }

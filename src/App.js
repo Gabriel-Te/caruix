@@ -11,6 +11,7 @@ import CardPressed from './pages/CardPressed.js';
 
 import useCarStore from './stores/useCarStore.js';
 import useToolsStore from './stores/useToolsStore.js';
+import EditVehicle from './pages/EditVehicle.js';
 
 
 function App() {
@@ -54,6 +55,7 @@ function App() {
               <Route path='/catalog' element={<Catalog />}></Route>
               <Route path='/createvehicle' element={<CreateVehicle />}></Route>
               <Route path='/cardpressed/:id' element={<CardPressed />}></Route>
+              <Route path='/edit/:id' element={<EditVehicle/>}></Route>
             </Routes>
           </div>
         </div>
