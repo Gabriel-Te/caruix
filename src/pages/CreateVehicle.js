@@ -1,39 +1,41 @@
 import FormVehicle from '../components/FormVehicle.js';
 import styles from './CreateVehicle.module.css'
+import useCarStore from '../stores/useCarStore.js';
 
 function CreateVehicle() {
+    const addNewCar = useCarStore((state) => state.addNewCar)
 
-    const values ={         
-    brand: "",
-    model: "",
-    price: 0,
-    status: "1",
-    image: ""
+    const values = {
+        brand: "",
+        model: "",
+        price: 0,
+        status: "1",
+        image: ""
     }
 
-    const sendForm = async(FormValues) => {
+    const sendForm = async (FormValues) => {
         try {
-        const response = await fetch('http://localhost:3002/car/create', {
-            method: "POST",
-            headers: {
-                "Content-Type" :'application/json'
-            },
-            body: JSON.stringify(FormValues)
-        })
-        if (response.ok) {
-            const data = await response.json()
-            console.log("resposta do server",data)
+            const response = await fetch('http://localhost:3002/car/create', {
+                method: "POST",
+                headers: {
+                    "Content-Type": 'application/json'
+                },
+                body: JSON.stringify(FormValues)
+            })
+            if (response.ok) {
+                const data = await response.json()
+                const newCar = data.newCar
+                addNewCar(newCar)
+                console.log("resposta do server", data)
+            }
+        }catch (error) {
+            console.log('erro ao passar os dados', error)
         }
-    }
-
-    catch (error) {
-        console.log('erro ao passar os dados', error)
-    }};
-
-
+    };
+    
     return (
         <div className={styles.box}>
-            <FormVehicle actionFunction={sendForm} inicialValues={values}/>
+            <FormVehicle actionFunction={sendForm} inicialValues={values} />
         </div>
     )
 }

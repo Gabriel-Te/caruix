@@ -1,11 +1,11 @@
 import styles from './FormVehicle.module.css'
 import { useState } from 'react';
 
-function FormVehicle({actionFunction, inicialValues}) {
+function FormVehicle({ actionFunction, inicialValues }) {
 
     const [FormValues, setFormValues] = useState(
         inicialValues,
-        inicialValues.status == false? (inicialValues.status ="0") : (
+        inicialValues.status === false ? (inicialValues.status = "0") : (
             inicialValues.status = "1"))
 
     const handleInputChange = (e) => {
@@ -17,7 +17,7 @@ function FormVehicle({actionFunction, inicialValues}) {
     }
 
     const handleSubmit = (e) => {
-        e.preventDefault(); 
+        e.preventDefault();
         setFormValues({
             brand: "",
             model: "",
@@ -29,7 +29,7 @@ function FormVehicle({actionFunction, inicialValues}) {
         if (FormValues.status === "1") {
             FormValues.status = true
         } else { FormValues.status = false }
-        {actionFunction(FormValues)}
+        actionFunction(FormValues)
     }
 
     return (

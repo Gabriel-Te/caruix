@@ -1,6 +1,6 @@
 import {create} from 'zustand'
 
-const useToolsStore = create((set, get) =>({
+const useToolsStore = create((set) =>({
     navIsHidden: false,
 
     hideNav : () => set({navIsHidden : true}),

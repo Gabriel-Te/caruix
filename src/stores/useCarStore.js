@@ -7,6 +7,12 @@ const useCarStore = create((set, get) => ({
         set({ cars: carsData });
     },
 
+    addNewCar : (newCarData) => {
+        set((state) => ({
+            cars : [...state.cars, newCarData]
+        }))
+    },
+
     getByID: (id) => {
         const cars = get().cars;
         const carPerID = cars.find((car) => car.id === id) || [];
@@ -20,6 +26,16 @@ const useCarStore = create((set, get) => ({
             ),
         }));
     },
+
+    removeCar : (id) => {
+        set((state) => ({
+            cars : state.cars.filter((car) =>
+                car.id !== id  
+            )
+        }))
+    }
+
+
 }));
 
 export default useCarStore;

@@ -12,7 +12,9 @@ function CardPressed() {
     const idInt = Number(id)
     const [car, setCar] = useState(null)
     const [sureQuestion, setSureQuestion] = useState(false)
+
     const getByID = useCarStore((state) => state.getByID)
+    const removeCar = useCarStore((state) => state.removeCar)
 
     const getCar = async () => {
         const car = getByID(idInt)
@@ -28,6 +30,7 @@ function CardPressed() {
             })
             if (result.ok) {
                 console.log(`veículo ${id} removido`)
+                removeCar(idInt)
                 navigate('/catalog');
             }
         } catch (error) {

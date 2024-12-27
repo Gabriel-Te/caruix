@@ -8,8 +8,10 @@ function EditVehicle() {
     const navigate = useNavigate()
     const { id } = useParams()
     const idInt = Number(id)
+    
     const editCar = useCarStore((state) => state.editCar)
     const getByID = useCarStore((state) => state.getByID)
+
     const values = getByID(idInt)
 
     const Edit = async (FormValues) => {

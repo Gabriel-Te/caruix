@@ -12,7 +12,7 @@ function Catalog() {
 
 
 
-
+    console.log(cars)
 
     return (
         <div className={styles.box}>
