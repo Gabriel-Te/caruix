@@ -1,18 +1,11 @@
 import styles from './Catalog.module.css'
 import CardItem from '../components/CardItem.js'
-import { useEffect } from 'react';
 import ErrorMessage from '../components/ErrorMessage.js';
 import useCarStore from '../stores/useCarStore.js';
 
 function Catalog() {
-
-    const setCars = useCarStore((state) => state.setCars)
+    
     const cars = useCarStore((state) => state.cars)
-
-
-
-
-    console.log(cars)
 
     return (
         <div className={styles.box}>

@@ -1,0 +1,32 @@
+.container{
+    flex: 1;
+    color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+}
+
+.downloadButton{
+    display: flex;
+    text-decoration: none;
+    color: #fff;
+    background-color: #242424;
+    padding: 10px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    border: none;
+}
+
+.control{
+    max-height: 100%;
+    overflow-y: auto;
+    margin: 20px;
+}
+
+.pdfviewer{
+    height: 100vh;
+}
+
+.container::-webkit-scrollbar{
+    display: none;
+}

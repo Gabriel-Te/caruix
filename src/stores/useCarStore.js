@@ -33,7 +33,23 @@ const useCarStore = create((set, get) => ({
                 car.id !== id  
             )
         }))
+    },
+
+    separePerStatus : () => {
+        const cars = get().cars
+        const sellCars = []
+        const soldCars = []
+
+        cars.forEach((car) => {
+            if(car.status === true) {
+                sellCars.push(car)
+            }else {
+                soldCars.push(car)
+            }
+        })
+        return ({sellCars, soldCars})
     }
+
 
 
 }));
