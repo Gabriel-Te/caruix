@@ -12,18 +12,19 @@
 
 .card img{
     width: 100%;
-    object-fit: contain;
+    height: 140px;
+    object-fit: cover;
 }
 
 .card b{
     font-weight: 800;
-    color: #D4DBFA;
+    color: #DEE5FF;
 }
 
 .card h2{
     font-family: "Roboto", sans-serif;
     font-weight: 500;
-    font-size: 25px;
+    font-size: 22px;
 }
 
 .card p{

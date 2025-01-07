@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { PDFViewerComponent, ReportPdf } from "../components/generatePDF.js"
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import useCarStore from "../stores/useCarStore.js"
@@ -8,14 +8,13 @@ function Report() {
     const cars = useCarStore((state) => state.cars)
     const separePerStatus = useCarStore((state) => state.separePerStatus)
 
-    const separateCars = separePerStatus()
     const [currentDate, setCurrentDate] = useState(null)
     const [buttonIsClicked, setButtonIsClicked] = useState(false)
 
-    const sellValue = separateCars.sellCars.reduce((total, car) => total + car.price, 0)
-    const soldValue = separateCars.soldCars.reduce((total, car) => total + car.price, 0)
-    const sellCars = separateCars.sellCars.length
-    const soldCars = separateCars.soldCars.length
+    const sellValue = separePerStatus().sellCars.reduce((total, car) => total + car.price, 0)
+    const soldValue = separePerStatus().soldCars.reduce((total, car) => total + car.price, 0)
+    const sellCars = separePerStatus().sellCars.length
+    const soldCars = separePerStatus().soldCars.length
 
     const generateDate = () => {
         const newDate = new Date()

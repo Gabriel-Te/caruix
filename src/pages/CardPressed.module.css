@@ -3,6 +3,7 @@
     color: rgb(255, 255, 255);
     overflow-y: auto;
     max-height: 100%;
+    margin: 20px;
 }
 
 .container::-webkit-scrollbar {
@@ -39,6 +40,7 @@
     font-family: "Roboto", sans-serif;
     font-weight: 500;
     font-size: 30px;
+    margin-bottom: 10px;
 }
 
 .removeBtn {
@@ -48,6 +50,7 @@
     border-radius: 4px;
     background-color: rgb(255, 91, 91);
     height: 35px;
+    width: 140px;
     margin-right: 5px;
 }
 
@@ -62,6 +65,7 @@
     border-radius: 4px;
     background-color: rgb(91, 168, 255);
     height: 35px;
+    width: 140px;
 }
 
 .editBtn:hover {

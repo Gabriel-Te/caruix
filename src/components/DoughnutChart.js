@@ -22,9 +22,6 @@ function DoughnutChart(props) {
     const options = {
         maintainAspectRatio: true,
         responsive: true,
-        animation: {
-            duration: 0
-        },
         plugins: {
             legend: {
                 position: "bottom",

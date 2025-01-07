@@ -6,7 +6,7 @@ import AdviceMessage from "../components/AdviceMessage.js"
 import useCarStore from "../stores/useCarStore.js"
 
 function CardPressed() {
-    const cars = useCarStore((state) => state.cars)
+
     const navigate = useNavigate()
     const { id } = useParams()
     const idInt = Number(id)
@@ -40,11 +40,7 @@ function CardPressed() {
 
     useEffect(
         () => {
-            if (cars.length === 0) {
-                navigate('/catalog')
-            } else {
-                getCar()
-            }
+            getCar()
         }, [])
 
 

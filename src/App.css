@@ -23,7 +23,7 @@ body{
 
 .content{
   display: flex;
-  height: calc(100% - 71px);
+  height: calc(100% - 79px);
 }
 
 .loading{

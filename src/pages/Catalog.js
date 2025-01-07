@@ -11,7 +11,7 @@ function Catalog() {
         <div className={styles.box}>
             <div className={styles.list}>
                 {cars.length > 0 ? (
-                    cars.map((item) => (
+                    cars.map((item) => ( 
                         <CardItem key={item.id}
                             image={item.image} id={item.id}
                             brand={item.brand}
