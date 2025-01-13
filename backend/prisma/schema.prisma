@@ -15,3 +15,10 @@ model car {
   status Boolean?
   image  String?  @db.VarChar(512)
 }
+
+model user {
+  id       Int     @id @default(autoincrement())
+  name     String? @db.VarChar(50)
+  email    String? @db.VarChar(200)
+  password String? @db.VarChar(200)
+}

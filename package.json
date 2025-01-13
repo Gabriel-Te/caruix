@@ -24,7 +24,8 @@
     "zustand": "^5.0.2"
   },
   "scripts": {
-    "start": "react-scripts start && cd backend node app.js",
+    "server" : "cd backend && node --watch app.js",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
