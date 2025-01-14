@@ -10,9 +10,20 @@ const getAll = async() => {
     }
 }
 
+const getById = async(id) => {
+    try {
+        return await prisma.user.findUnique({
+            where: {
+                id: id
+            }
+        })
+    } catch (error) {
+        throw error
+    }
+}
+
 const create = async(userForm) => {
     try {
-        console.log(userForm)
         return await prisma.user.create({
             data:{
                 name: userForm.name,
@@ -25,6 +36,38 @@ const create = async(userForm) => {
     }
 }
 
+const edit = async(userForm) => {
+    try {
+        return await prisma.user.update({
+            where: {
+                id: userForm.id
+            },
+            data: {
+                name: userForm.name,
+                email: userForm.email,
+                password: userForm.password
+            }
+        })
+    } catch (error) {
+        throw error
+    }
+}
+
+const remove = async(id) => {
+    try {
+        return await prisma.user.delete({
+            where: {
+                id: id
+            }
+        })
+    } catch (error) {
+        throw error
+    }
+}
 
 
-export default {getAll,create}
+
+
+
+
+export default {getAll,getById,create,edit,remove}
