@@ -3,6 +3,50 @@
     overflow-y:auto;
 }
 
+.toolsArea{
+    margin: 20px;
+    padding: 10px;
+    background-color: #242424;
+    height: 25px;
+    transition: height 0.2s ease-out;
+}
+
+.toolsArea.active{
+    height: 220px;
+
+}
+
+.toolsArea button{
+    cursor: pointer;
+    border: none;
+    padding: 5px 10px;
+    outline: 0;
+    background-color:#6a6f85;
+    color: #dfdfdf;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.tabArea{
+    padding: 10px;
+    width: 100px;
+    color: aliceblue;
+}
+
+.tabArea input{
+    margin: 5px 0;
+}
+
+.tabArea p, label {
+    font-size: 15px;
+    margin: 5px 0;
+}
+
+.tabArea button{
+    margin: 10px 0;
+}
+
+
 .list {
     margin: 20px;
     display: grid;

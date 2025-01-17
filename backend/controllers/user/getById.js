@@ -11,8 +11,6 @@ const getById = async(req, res) => {
     } catch (error) {
         throw error
     }
-
-
 }
 
 export default getById

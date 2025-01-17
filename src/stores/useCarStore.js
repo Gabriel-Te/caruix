@@ -35,6 +35,8 @@ const useCarStore = create((set, get) => ({
         }))
     },
 
+    //tools
+
     separePerStatus : () => {
         const cars = get().cars
         const sellCars = []
@@ -48,9 +50,22 @@ const useCarStore = create((set, get) => ({
             }
         })
         return ({sellCars, soldCars})
+    },
+
+    filterByPrice : (minPrice, maxPrice) => {
+        const cars = get().cars
+        if (!minPrice && !maxPrice) {
+            return cars;
+        } else if (!maxPrice && minPrice) {
+            maxPrice = Infinity;
+        } else if (!minPrice && maxPrice) {
+            minPrice = -1;
+        }
+        const carsFiltred = cars.filter((car) =>
+            car.price >= minPrice && car.price <= maxPrice
+        )
+        return carsFiltred
     }
-
-
 
 }));
 
