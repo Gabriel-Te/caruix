@@ -1,0 +1,82 @@
+*{
+    font-family: Roboto;
+}
+
+
+.container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contentArea{
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    padding: 3%;
+    background-color: #232323;
+    height: 30%;
+    border-radius: 30px;
+}
+
+.title {
+    color: aliceblue;
+    font-weight: 700;
+    text-align: center;
+    font-size: 20px;
+    padding: 0 0 10% 0;
+}
+
+.formInput{
+    display: flex;
+    flex-direction: column;
+    margin: 10px 10px;
+}
+
+.formInput input{
+    height: 2vh;
+}
+
+.inputText {
+    color: aliceblue;
+    font-weight: 600;
+    font-size: large;
+    margin-right: 20px;
+}
+
+
+.submit{
+    margin-top: 30px;
+    color: #6a6f85;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    text-align: center;
+}
+
+.submit input{
+    background-color: #6a6f85;
+    color: #dfdfdf;
+    border: none;
+    font-weight: 700;
+    width: 40%;
+    height: 35px;
+    font-size: larger;
+}
+
+.submit a {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    background-color: #6a6f85;
+    color: #dfdfdf;
+    border: none;
+    font-weight: 700;
+    width: 40%;
+    height: 35px;
+    font-size: larger;
+}

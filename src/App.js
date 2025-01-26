@@ -1,7 +1,6 @@
 import './App.css';
-import { Route, Routes, BrowserRouter as Router } from "react-router-dom"
-import { useEffect, useState } from 'react'
-import Caruix from './img/carUIX.svg'
+import { Route, Routes, useLocation } from "react-router-dom"
+import { useEffect,} from 'react'
 
 import Header from './layouts/Header.js';
 import Nav from './layouts/Nav.js'
@@ -11,18 +10,23 @@ import CreateVehicle from './pages/CreateVehicle.js';
 import CardPressed from './pages/CardPressed.js';
 import EditVehicle from './pages/EditVehicle.js';
 import Report from './pages/Report.js';
+import Register from './pages/Register.js'
+import VerifyUser from './components/VerifyUser.js';
 
 import useCarStore from './stores/useCarStore.js';
 import useToolsStore from './stores/useToolsStore.js';
+import useUserIsLogged from './stores/useUserIsLogged.js'
+import Login from './pages/Login.js';
 
 
 
 function App() {
   const setCars = useCarStore((state) => state.setCars)
   const navIsHidden = useToolsStore((state) => state.navIsHidden)
-
-  const [loading, setloading] = useState(true)
-
+  const controlledRoutes = ['/register', '/login']
+  const location = useLocation()
+  // const [loading, setloading] = useState(true)
+  const userIsLogged = useUserIsLogged((state) => state.userIsLogged);
 
   const getCars = async () => {
     try {
@@ -37,48 +41,40 @@ function App() {
         console.log("o coiso deu ok")
         const data = await result.json()
         setCars(data.cars)
-        setloading(false)
+        // setloading(false)
       }
     } catch (error) {
       console.error('erro ao coletar os dados', error)
-      setloading(false)
+      // setloading(false)
     }
   }
 
 
-  useEffect(() => {
-    getCars()
-  }, [])
 
-  if (loading) {
-    return (
-      <div className="loading">
-        <img alt="CarUIX" src={Caruix} />
-        <p>Carregando...</p>
-      </div>
-    )
-  }
+  useEffect(() => {
+    userIsLogged && getCars()
+  }, [userIsLogged])
+
+
 
   return (
     <div className="App">
-      <Router>
-        < Header />
-        <div className="content">
-          {!navIsHidden && < Nav />}
-          <div className="area">
-            <Routes>
-              <Route exact path='/' element={<Home />}></Route>
-              <Route path='/createvehicle' element={<CreateVehicle />}></Route>
-              <Route path='/catalog' element={<Catalog />}></Route>
-              <Route path='/cardpressed/:id' element={<CardPressed />}></Route>
-              <Route path='/edit/:id' element={<EditVehicle />}></Route>
-              <Route path='/report' element={<Report />}></Route>
-            </Routes>
-          </div>
-        </div>
-      </Router>
-
+      {controlledRoutes.includes(location.pathname) ? null : < Header />}
+      <div className={controlledRoutes.includes(location.pathname) ? "contentNoHeader" : "content"}>
+      {!controlledRoutes.includes(location.pathname) && (!navIsHidden && < Nav />)}
+      <div className="area">
+        <Routes>
+          <Route path='/login' element={<Login/>}/>
+          <Route path='/register' element={<Register />} />
+          <Route exact path='/' element={<VerifyUser><Home /></VerifyUser>} />
+          <Route path='/createvehicle' element={<VerifyUser><CreateVehicle /></VerifyUser>} />
+          <Route path='/catalog' element={<VerifyUser><Catalog /></VerifyUser>} />
+          <Route path='/cardpressed/:id' element={<VerifyUser><CardPressed /></VerifyUser>} />
+          <Route path='/report' element={<VerifyUser><Report /></VerifyUser>} />
+        </Routes>
+      </div>
     </div>
+    </div >
   );
 }
 

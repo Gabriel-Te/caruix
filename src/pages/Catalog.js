@@ -2,12 +2,12 @@ import styles from './Catalog.module.css'
 import CardItem from '../components/CardItem.js'
 import ErrorMessage from '../components/ErrorMessage.js';
 import useCarStore from '../stores/useCarStore.js';
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 function Catalog() {
 
     const cars = useCarStore((state) => state.cars);
-    const [carItems, setCarItems] = useState(cars);
+    const [carItems, setCarItems] = useState([]);
     const filterByPrice = useCarStore((state) => state.filterByPrice);
     const [tabActive, setTabActive] = useState(false);
 
@@ -16,6 +16,10 @@ function Catalog() {
         minValue: null,
         maxValue: null
     });
+
+    useEffect(()=> {
+        setCarItems(cars)
+    }, [cars])
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -33,6 +37,9 @@ function Catalog() {
         );
         setCarItems(filtredCars);
     };
+
+    console.log(carItems)
+    
 
     return (
         <div className={styles.box}>

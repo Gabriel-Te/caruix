@@ -1,9 +1,11 @@
 import FormVehicle from '../components/FormVehicle.js';
 import styles from './CreateVehicle.module.css'
 import useCarStore from '../stores/useCarStore.js';
+import useUserIsLogged from '../stores/useUserIsLogged.js';
 
 function CreateVehicle() {
     const addNewCar = useCarStore((state) => state.addNewCar)
+    const logout = useUserIsLogged((state) => state.logout)
 
     const values = {
         brand: "",
@@ -35,6 +37,7 @@ function CreateVehicle() {
     
     return (
         <div className={styles.box}>
+            <button onClick={() => logout()}>logout</button>
             <FormVehicle actionFunction={sendForm} inicialValues={values} />
         </div>
     )

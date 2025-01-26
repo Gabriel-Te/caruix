@@ -26,6 +26,11 @@ body{
   height: calc(100% - 79px);
 }
 
+.contentNoHeader{
+  display: flex;
+  height: 100%;
+}
+
 .loading{
   display: flex;
   flex-direction: column;
@@ -38,6 +43,7 @@ body{
 .loading img {
   height: 20%;
 }
+
 .loading p{
   font-size: 2vh;
   font-weight: 600;

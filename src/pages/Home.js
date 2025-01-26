@@ -1,25 +1,27 @@
 import { useEffect, useState } from 'react';
 import styles from './Home.module.css';
-import { PDFDownloadLink } from '@react-pdf/renderer'
 import DoughnutChart from '../components/DoughnutChart.js';
-import Report from '../components/generatePDF.js';
+import useUserIsLogged from '../stores/useUserIsLogged.js';
 
 import useCarStore from '../stores/useCarStore.js';
 
 function Home() {
+  const userIsLogged = useUserIsLogged((state)=> state.userIsLogged)
   const cars = useCarStore((state) => state.cars)
   const separePerStatus = useCarStore((state) => state.separePerStatus)
   const [sell, setSell] = useState(0);
   const [sold, setSold] = useState(0);
+  console.log(userIsLogged)
 
   const count = () => {
     setSell(separePerStatus().sellCars.length)
     setSold(separePerStatus().soldCars.length)
   }
 
-  useState(() => {
+  useEffect(() => {
     count()
   }, [cars]) 
+  
 return (
 
   <div className={styles.box}>

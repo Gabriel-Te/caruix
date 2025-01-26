@@ -59,7 +59,7 @@ const useCarStore = create((set, get) => ({
         } else if (!maxPrice && minPrice) {
             maxPrice = Infinity;
         } else if (!minPrice && maxPrice) {
-            minPrice = -1;
+            minPrice = 0;
         }
         const carsFiltred = cars.filter((car) =>
             car.price >= minPrice && car.price <= maxPrice

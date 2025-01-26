@@ -5,8 +5,9 @@ function FormVehicle({ actionFunction, inicialValues }) {
 
     const [FormValues, setFormValues] = useState(
         inicialValues,
-        inicialValues.status === false ? (inicialValues.status = "0") : (
-            inicialValues.status = "1"))
+        inicialValues.status === false ? 
+        (inicialValues.status = "0") : 
+        (inicialValues.status = "1"))
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
