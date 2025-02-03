@@ -4,9 +4,11 @@ import ErrorMessage from "../components/ErrorMessage.js"
 import styles from './CardPressed.module.css'
 import AdviceMessage from "../components/AdviceMessage.js"
 import useCarStore from "../stores/useCarStore.js"
+import useUserIsLogged from '../stores/useUserIsLogged.js';
 
 function CardPressed() {
 
+    const userIsLogged = useUserIsLogged((state) => state.userIsLogged)
     const navigate = useNavigate()
     const { id } = useParams()
     const idInt = Number(id)
@@ -16,6 +18,8 @@ function CardPressed() {
     const getByID = useCarStore((state) => state.getByID)
     const removeCar = useCarStore((state) => state.removeCar)
 
+    const logout = useUserIsLogged((state) => state.logout)
+
     const getCar = async () => {
         const car = getByID(idInt)
         setCar(car)
@@ -24,17 +28,23 @@ function CardPressed() {
 
     const remove = async () => {
         try {
-            const result = await fetch(`http://localhost:3002/car/remove/${id}`, {
+            const result = await fetch(`http://localhost:3002/car/remove/${idInt}`, {
                 method: "DELETE",
-                headers: { "Content-Type": "application/json" }
+                headers: { "Content-Type": "application/json" },
+                credentials: 'include'
             })
+            if (result.status === 401) {
+                console.log('Token Inválido ou expirado. Retornando a tela de registro');
+                navigate('/register')
+                logout()
+            }
             if (result.ok) {
                 console.log(`veículo ${id} removido`)
                 removeCar(idInt)
                 navigate('/catalog');
             }
         } catch (error) {
-            console.log(`erro ao remover o veículo ${id}`)
+            console.log(`erro ao remover o veículo ${id}`, error)
         }
     }
 
@@ -42,6 +52,7 @@ function CardPressed() {
         () => {
             getCar()
         }, [])
+
 
 
     function formattedNumber(price) {

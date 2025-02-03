@@ -17,8 +17,8 @@ model car {
 }
 
 model user {
-  id       Int     @id @default(autoincrement())
+  id       Int     @id @unique(map: "id_UNIQUE") @default(autoincrement())
   name     String? @db.VarChar(50)
-  email    String? @db.VarChar(200)
+  email    String? @db.VarChar(200) @unique
   password String? @db.VarChar(200)
 }

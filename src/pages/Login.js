@@ -5,31 +5,24 @@ import { useNavigate, NavLink } from 'react-router-dom'
 
 function Login() {
     const navigate = useNavigate()
-    const login = useUserIsLogged((state) => state.login )
-    const userIsLogged = useUserIsLogged((state) => state.userIsLogged);
+    const login = useUserIsLogged((state)=> state.login)
 
-    useEffect(() => {
-        if(userIsLogged) {
-            navigate('/')
-        }
-    }, [userIsLogged, navigate])
 
     const compareLogin = async (formUser) => {
+        console.log(formUser)
         try {
-            const response = await fetch('http://localhost:3002/user/getAll',{
-                method: 'GET',
+            const response = await fetch('http://localhost:3002/user/login',{
+                method: 'POST',
                 headers: {
                     "Content-Type" : 'application/json'
-                }
+                },
+                body: JSON.stringify(formUser),
+                credentials: 'include'
             })
             if(response.ok){
-                const data = await response.json()
-                const compare = data.users.find((user) => (
-                    user.name === formUser.name && user.password === formUser.password))
-                console.log(compare)
-                if (compare) {
-                    login()
-                }else{console.log('Usuário ou senha incorretos')}
+                console.log('deu certo')
+                login()
+                navigate('/')
             }
         } catch (error) {
             console.log(error)
@@ -37,7 +30,7 @@ function Login() {
     }
     
     const [formUser,setFormUser] = useState({
-        name : '',
+        email : '',
         password: ''
     })
 
@@ -60,8 +53,8 @@ function Login() {
                 <p className={styles.title}>Login</p>
                 <form className={styles.form} onSubmit={handleSubmit}>
                     <div className={styles.formInput}>
-                        <label className={styles.inputText}>Nome de usuário</label>
-                        <input autoComplete="username" onChange={handleInputChange} value={formUser.name} name='name' type="text" />
+                        <label className={styles.inputText}>Email</label>
+                        <input autoComplete="email" onChange={handleInputChange} value={formUser.email} name='email' type="email" />
                     </div>
                     <div className={styles.formInput}>
                         <label className={styles.inputText}>Senha</label>

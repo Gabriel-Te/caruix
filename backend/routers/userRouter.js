@@ -4,9 +4,13 @@ import getAll from '../controllers/user/getAll.js'
 import getById from '../controllers/user/getById.js'
 import edit from '../controllers/user/edit.js'
 import remove from '../controllers/user/remove.js'
+import login from '../controllers/user/login.js'
+import logout from '../controllers/user/logout.js'
 
 const router = express.Router()
 
+router.get('/logout', logout)
+router.post('/login', login)
 router.get('/getAll', getAll)
 router.get('/getById/:id', getById)
 router.post('/create', create)

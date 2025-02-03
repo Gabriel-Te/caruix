@@ -1,6 +1,6 @@
 import './App.css';
-import { Route, Routes, useLocation } from "react-router-dom"
-import { useEffect,} from 'react'
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom"
+import { useEffect, useState } from 'react'
 
 import Header from './layouts/Header.js';
 import Nav from './layouts/Nav.js'
@@ -12,6 +12,7 @@ import EditVehicle from './pages/EditVehicle.js';
 import Report from './pages/Report.js';
 import Register from './pages/Register.js'
 import VerifyUser from './components/VerifyUser.js';
+import Configs from './pages/Configs.js'
 
 import useCarStore from './stores/useCarStore.js';
 import useToolsStore from './stores/useToolsStore.js';
@@ -21,12 +22,14 @@ import Login from './pages/Login.js';
 
 
 function App() {
+  const navigate = useNavigate()
   const setCars = useCarStore((state) => state.setCars)
   const navIsHidden = useToolsStore((state) => state.navIsHidden)
   const controlledRoutes = ['/register', '/login']
   const location = useLocation()
-  // const [loading, setloading] = useState(true)
+  const [loading, setloading] = useState(true)
   const userIsLogged = useUserIsLogged((state) => state.userIsLogged);
+  const logout = useUserIsLogged((state) => state.logout)
 
   const getCars = async () => {
     try {
@@ -36,23 +39,30 @@ function App() {
           headers: {
             "Content-Type": "application/json",
           },
+          credentials: 'include'
         });
+      if (result.status === 401) {
+        console.log('Token Inválido ou expirado. Retornando a tela de registro');
+        navigate('/register')
+        logout()
+      }
       if (result.ok) {
         console.log("o coiso deu ok")
         const data = await result.json()
+        console.log(data)
         setCars(data.cars)
-        // setloading(false)
+        setloading(false)
       }
     } catch (error) {
       console.error('erro ao coletar os dados', error)
-      // setloading(false)
+      setloading(false)
     }
   }
 
 
 
   useEffect(() => {
-    userIsLogged && getCars()
+    userIsLogged === true ? getCars() : navigate('/register') 
   }, [userIsLogged])
 
 
@@ -61,20 +71,22 @@ function App() {
     <div className="App">
       {controlledRoutes.includes(location.pathname) ? null : < Header />}
       <div className={controlledRoutes.includes(location.pathname) ? "contentNoHeader" : "content"}>
-      {!controlledRoutes.includes(location.pathname) && (!navIsHidden && < Nav />)}
-      <div className="area">
-        <Routes>
-          <Route path='/login' element={<Login/>}/>
-          <Route path='/register' element={<Register />} />
-          <Route exact path='/' element={<VerifyUser><Home /></VerifyUser>} />
-          <Route path='/createvehicle' element={<VerifyUser><CreateVehicle /></VerifyUser>} />
-          <Route path='/catalog' element={<VerifyUser><Catalog /></VerifyUser>} />
-          <Route path='/cardpressed/:id' element={<VerifyUser><CardPressed /></VerifyUser>} />
-          <Route path='/report' element={<VerifyUser><Report /></VerifyUser>} />
-        </Routes>
+        {!controlledRoutes.includes(location.pathname) && (!navIsHidden && < Nav />)}
+        <div className="area">
+          <Routes>
+            <Route path='/login' element={<Login />} />
+            <Route path='/register' element={<Register />} />
+            <Route exact path='/' element={<Home />} />
+            <Route path='/createvehicle' element={<CreateVehicle />} />
+            <Route path='/catalog' element={<Catalog />} />
+            <Route path='/cardpressed/:id' element={<CardPressed />} />
+            <Route path='/edit/:id' element={<EditVehicle />} />
+            <Route path='/report' element={<Report />} />
+            <Route path='/configs' element={<Configs />} />
+          </Routes>
+        </div>
       </div>
     </div>
-    </div >
   );
 }
 

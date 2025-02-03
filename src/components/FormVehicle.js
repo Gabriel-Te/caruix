@@ -1,7 +1,11 @@
+import { useNavigate } from 'react-router-dom';
 import styles from './FormVehicle.module.css'
 import { useState } from 'react';
+import useUserIsLogged from '../stores/useUserIsLogged.js';
 
 function FormVehicle({ actionFunction, inicialValues }) {
+
+    const userIsLogged = useUserIsLogged((state) => state.userIsLogged)
 
     const [FormValues, setFormValues] = useState(
         inicialValues,
@@ -60,7 +64,7 @@ function FormVehicle({ actionFunction, inicialValues }) {
                     onChange={handleInputChange}
                 />
                 <p>Status: </p>
-
+                <div className={styles.statusArea}>
                 <p>Vendido</p>
                 <input
                     type="radio"
@@ -69,7 +73,9 @@ function FormVehicle({ actionFunction, inicialValues }) {
                     checked={FormValues.status === "0"}
                     onChange={handleInputChange}
                 />
+                </div>
 
+                <div className={styles.statusArea}>
                 <p>À venda</p>
                 <input
                     type="radio"
@@ -78,6 +84,8 @@ function FormVehicle({ actionFunction, inicialValues }) {
                     checked={FormValues.status === "1"}
                     onChange={handleInputChange}
                 />
+                </div>
+
 
                 <p>Imagem</p>
                 <input

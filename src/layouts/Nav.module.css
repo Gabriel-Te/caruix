@@ -4,26 +4,21 @@
 nav {
     display: flex;
     flex-direction: column;
-    min-width: 230px;
-    max-width: 230px;
-    background-color: #6a6f85;
-    padding-top: 5px;
+    width: 15%;
+    background-color: #1b1b1b;
+    padding: 5px 0;
 }
 
 .links{
-    font-family: "Roboto";
     font-weight: 500;
-    font-style: normal;
-    font-size: 16px;
+    font-size: 14px;
     text-decoration: none;
-    color: #DEE5FF;
-    text-align: center;
-    background-color: #242424;
-    margin: 15px 10px;
-    padding: 15px;
+    color: #ececec;
+    margin: 5px 0px;
+    padding: 10px;
 }
 
 .links.activePath{
-    color: #dee5ffbb;
-    background-color: #2424249c;
+    color: #ffffffbb;
+    background-color: #4444449c;
 }

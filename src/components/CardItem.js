@@ -15,7 +15,7 @@ function CardItem(props) {
   return (
     <NavLink className={styles.link} to={`/cardpressed/${props.id}`}>
       <div className={styles.card}>
-        <img src={props.image} alt="image" />
+          <img src={props.image} alt="image" />
         <div className={styles.cardtext}>
           <h2><b>{props.brand}</b> {props.model}</h2>
           <p>{formattedNumber(props.price)}</p>

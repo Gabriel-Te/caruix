@@ -18,7 +18,7 @@ body{
 
 .area{
   flex: 1;
-  background-color: rgb(96, 107, 122);
+  background-color: rgba(45, 52, 66, 0.788);
 }
 
 .content{
@@ -34,7 +34,7 @@ body{
 .loading{
   display: flex;
   flex-direction: column;
-  background-color: rgb(96, 107, 122);
+  background-color: rgb(146, 146, 146);
   height: 100vh;
   justify-content: center;
   align-items: center;

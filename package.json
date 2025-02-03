@@ -24,7 +24,7 @@
     "zustand": "^5.0.2"
   },
   "scripts": {
-    "server" : "cd backend && node --watch app.js",
+    "server": "cd backend && node --watch app.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -47,5 +47,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "cookie-parser": "^1.4.7",
+    "jsonwebtoken": "^9.0.2"
   }
 }

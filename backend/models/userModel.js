@@ -2,6 +2,20 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient()
 
+
+const login = async(userLoginForm) => {
+    try {
+        return await prisma.user.findUnique({
+            where: {
+                email : userLoginForm.email,
+                password : userLoginForm.password
+            }
+        })
+    } catch (error) {
+        throw error
+    }
+}
+
 const getAll = async() => {
     try {
         return await prisma.user.findMany()
@@ -70,4 +84,4 @@ const remove = async(id) => {
 
 
 
-export default {getAll,getById,create,edit,remove}
+export default {getAll,getById,create,edit,remove, login}

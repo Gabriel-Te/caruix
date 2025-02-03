@@ -1,0 +1,31 @@
+.container{
+    max-height:100%;
+    overflow-y:auto;
+}
+
+.box{
+    padding: 20px;
+}
+
+.item{
+    display: flex;
+    flex-direction: column;
+    background-color: #242424;
+    padding: 10px;
+    gap: 20px;
+}
+
+.item p{
+    font-size: 20px;
+    color: rgb(224, 224, 224);
+    font-weight: 500;
+}
+
+.item button{
+    width: 100px;
+    border: none;
+    padding: 2px;
+    font-weight: 700;
+    background-color: #6a6f85;
+    color: rgb(228, 228, 228);
+}

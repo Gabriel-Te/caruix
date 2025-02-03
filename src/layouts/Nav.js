@@ -7,11 +7,11 @@ function Nav() {
 
     return (
         <nav>
-            <NavLink className={activePath === "/" ? `${styles.links} ${styles.activePath}` : styles.links} to="/" >início</NavLink>
-            <NavLink className={activePath === "/catalog" ? `${styles.links} ${styles.activePath}` : styles.links} to="/catalog" >catálogo</NavLink>
-            <NavLink className={activePath === "/report" ? `${styles.links} ${styles.activePath}` : styles.links} to="/report" >relatório</NavLink>
-            <NavLink className={activePath === "/createvehicle" ? `${styles.links} ${styles.activePath}` : styles.links} to="/createvehicle" >cadastrar veículo</NavLink>
-            <NavLink className={activePath === "/configurar" ? `${styles.links} ${styles.activePath}` : styles.links} to="/configurar" >configurar</NavLink>
+            <NavLink className={activePath === "/" ? `${styles.links} ${styles.activePath}` : styles.links} to="/" >Início</NavLink>
+            <NavLink className={activePath === "/catalog" ? `${styles.links} ${styles.activePath}` : styles.links} to="/catalog" >Catálogo</NavLink>
+            <NavLink className={activePath === "/report" ? `${styles.links} ${styles.activePath}` : styles.links} to="/report" >Relatório</NavLink>
+            <NavLink className={activePath === "/createvehicle" ? `${styles.links} ${styles.activePath}` : styles.links} to="/createvehicle" >Cadastrar Veículo</NavLink>
+            <NavLink className={activePath === "/configs" ? `${styles.links} ${styles.activePath}` : styles.links} to="/configs" >Configurar</NavLink>
         </nav>
     )
 }
