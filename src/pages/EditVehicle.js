@@ -34,7 +34,8 @@ function EditVehicle() {
                     editCar(CarEdited, idInt)
                     const response = await result.json()
                     console.log('resposta do server', response)
-                    navigate(`/cardpressed/${id}`)
+                    //you can pass an value while navigate, receive this value using location.state.{objeto}
+                    navigate(`/cardpressed/${id}`,{state: {message : 'veículo editado com sucesso'}})
                 }
             } catch (error) {
                 console.log('erro ao enviar o veiculo', error)

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate, NavLink } from 'react-router-dom';
 import styles from './Register.module.css'
+import { toast } from 'react-toastify';
 
 
 function Register() {

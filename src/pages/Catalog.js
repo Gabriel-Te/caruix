@@ -3,6 +3,7 @@ import CardItem from '../components/CardItem.js'
 import ErrorMessage from '../components/ErrorMessage.js';
 import useCarStore from '../stores/useCarStore.js';
 import { useEffect, useState } from 'react'
+import { toast } from 'react-toastify';
 
 function Catalog() {
 
@@ -36,6 +37,7 @@ function Catalog() {
             filterValues.maxValue
         );
         setCarItems(filtredCars);
+        toast.success('Filtro aplicado')
     };
 
     console.log(carItems)

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import styles from './Login.module.css'
 import useUserIsLogged from '../stores/useUserIsLogged.js'
 import { useNavigate, NavLink } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 function Login() {
     const navigate = useNavigate()
@@ -9,7 +10,6 @@ function Login() {
 
 
     const compareLogin = async (formUser) => {
-        console.log(formUser)
         try {
             const response = await fetch('http://localhost:3002/user/login',{
                 method: 'POST',
@@ -19,7 +19,10 @@ function Login() {
                 body: JSON.stringify(formUser),
                 credentials: 'include'
             })
-            if(response.ok){
+            if(response.status === 401){
+                toast.error('Email ou senha inválidos')
+            }
+            else if(response.ok){
                 console.log('deu certo')
                 login()
                 navigate('/')
@@ -44,7 +47,11 @@ function Login() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        compareLogin(formUser)
+        if(formUser.email != '' || formUser.password != ''){
+            compareLogin(formUser)
+        }else{
+            toast.error('Email ou senha estão vazios')
+        }
     }
 
     return (

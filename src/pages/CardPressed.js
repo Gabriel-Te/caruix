@@ -41,7 +41,7 @@ function CardPressed() {
             if (result.ok) {
                 console.log(`veículo ${id} removido`)
                 removeCar(idInt)
-                navigate('/catalog');
+                navigate('/catalog', {state: {message: `veículo ${id} removido`}});
             }
         } catch (error) {
             console.log(`erro ao remover o veículo ${id}`, error)

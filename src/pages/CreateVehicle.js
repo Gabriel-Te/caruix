@@ -19,7 +19,6 @@ function CreateVehicle() {
     }
 
     const sendForm = async (FormValues) => {
-        if (userIslogged === true) {
             try {
                 const result = await fetch('http://localhost:3002/car/create', {
                     method: "POST",
@@ -38,16 +37,12 @@ function CreateVehicle() {
                     const data = await result.json()
                     const newCar = data.newCar
                     addNewCar(newCar)
+                    navigate('/catalog', {state: {message: 'Dados enviados com sucesso'}})
                     console.log("resposta do server", data)
                 }
             } catch (error) {
                 console.log('erro ao passar os dados', error)
             }
-        }else{
-            console.log('Usuário não logado, retonando a pagina de registro');
-            logout()
-            navigate('/register')
-        }
     };
 
     return (

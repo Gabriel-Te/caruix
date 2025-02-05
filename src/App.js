@@ -1,6 +1,7 @@
 import './App.css';
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom"
 import { useEffect, useState } from 'react'
+import { ToastContainer, toast } from 'react-toastify';
 
 import Header from './layouts/Header.js';
 import Nav from './layouts/Nav.js'
@@ -65,6 +66,12 @@ function App() {
     userIsLogged === true ? getCars() : navigate('/register') 
   }, [userIsLogged])
 
+  useEffect(() => {
+    if (location.state && location.state.message) {
+      toast.success(`${location.state.message}`)
+      navigate(location.pathname, { replace: true, state: {} })
+    }
+  }, [location.state])
 
 
   return (
@@ -73,6 +80,9 @@ function App() {
       <div className={controlledRoutes.includes(location.pathname) ? "contentNoHeader" : "content"}>
         {!controlledRoutes.includes(location.pathname) && (!navIsHidden && < Nav />)}
         <div className="area">
+        <div className='notify'>
+          <ToastContainer theme='dark'/>
+        </div>
           <Routes>
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
