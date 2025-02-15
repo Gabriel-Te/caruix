@@ -17,7 +17,7 @@ function FormVehicle({ actionFunction, inicialValues }) {
         const { name, value } = e.target;
         setFormValues({
             ...FormValues,
-            [name]: name === "price" ? parseInt(value) : value,
+            [name]: name === "price" ? (parseInt(value)) : (value)
         })
     }
 

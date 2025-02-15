@@ -9,6 +9,7 @@
     background-color: #242424;
     height: 25px;
     transition: height 0.2s ease-out;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.568);
 }
 
 .toolsArea.active{

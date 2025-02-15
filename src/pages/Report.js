@@ -46,14 +46,14 @@ function Report() {
             <div className={styles.control}>
                 <div className={styles.buttonArea}>
                     {buttonIsClicked ? (
-                        <div onClick={generateDate}>
                         <PDFDownloadLink
+                            onClick={generateDate}
                             document={<ReportPdf data={data} currentDate={currentDate}/>}
                             fileName="relatorio.pdf"
                             className={styles.downloadButton}
                         
-                        >baixar pdf</PDFDownloadLink></div>
-                    ) : (<button className={styles.downloadButton} onClick={generateDate}>Carregar PDF</button>)}
+                        >baixar pdf</PDFDownloadLink>
+                    ) : (<button className={styles.prepareButton} onClick={generateDate}>Carregar PDF</button>)}
 
                 </div>
                 {/* <div className={styles.pdfviewer}> */}

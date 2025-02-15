@@ -19,6 +19,7 @@ import useCarStore from './stores/useCarStore.js';
 import useToolsStore from './stores/useToolsStore.js';
 import useUserIsLogged from './stores/useUserIsLogged.js'
 import Login from './pages/Login.js';
+import Profile from './pages/Profile.js';
 
 
 
@@ -47,7 +48,7 @@ function App() {
         navigate('/register')
         logout()
       }
-      if (result.ok) {
+      else if (result.ok) {
         console.log("o coiso deu ok")
         const data = await result.json()
         console.log(data)
@@ -93,6 +94,7 @@ function App() {
             <Route path='/edit/:id' element={<EditVehicle />} />
             <Route path='/report' element={<Report />} />
             <Route path='/configs' element={<Configs />} />
+            <Route path='/profile' element={<Profile/>}/>
           </Routes>
         </div>
       </div>

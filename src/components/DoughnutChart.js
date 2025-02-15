@@ -24,11 +24,10 @@ function DoughnutChart(props) {
         responsive: true,
         plugins: {
             legend: {
-                position: "bottom",
                 labels : {
                     color: '#FFF',
                     font: {
-                        size:16
+                        size: 13
                     }
                 },
             },
@@ -37,7 +36,7 @@ function DoughnutChart(props) {
                 text: "Veículos Disponíveis vs Vendidos",
                 color: "#FFF",
                 font:{
-                    size: 16
+                    size: 15
                 }
             }
         }

@@ -3,24 +3,30 @@
     color: rgb(255, 255, 255);
     display: flex;
     flex-direction: column;
+    margin: 20px;
 }
 
 .downloadButton{
     display: flex;
     text-decoration: none;
-    color: #fff;
+    color: #ffffff;
     background-color: #242424;
     padding: 10px;
+    font-size: 15px;
     justify-content: center;
     text-align: center;
     align-items: center;
     border: none;
+    cursor: pointer;
 }
 
-.control{
-    max-height: 100%;
-    overflow-y: auto;
-    margin: 20px;
+.prepareButton{
+    width: 100%;
+    font-size: 14px;
+    color: #ffffff;
+    background-color: #242424;
+    padding: 10px;
+    cursor: pointer;
 }
 
 .pdfviewer{

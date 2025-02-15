@@ -4,7 +4,8 @@ const edit = async(req, res) => {
 
     try {
         const id = parseInt(req.params.id)
-        const FormUser = await {id, ...req.body.FormValues}
+        const FormUser = await {id, ...req.body}
+        console.log(FormUser)
         const editUser = await userModel.edit(FormUser)
         res.status(200).json({
             message: `usuário ${id} editado com sucesso`,

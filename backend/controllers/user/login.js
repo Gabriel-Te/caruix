@@ -8,7 +8,7 @@ const login = async (req, res) => {
         console.log(userLogged, userLoginForm)
         if (userLogged) {
             const id = userLogged.id
-            const token = jwt.sign({ id }, process.env.SECRET, {
+            const token = jwt.sign({ id, }, process.env.SECRET, {
                 expiresIn: "1h"
             })
             res.cookie('token', token, {

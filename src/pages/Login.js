@@ -57,7 +57,7 @@ function Login() {
     return (
         <div className={styles.container}>
             <div className={styles.contentArea}>
-                <p className={styles.title}>Login</p>
+                <h2 className={styles.title}>Login</h2>
                 <form className={styles.form} onSubmit={handleSubmit}>
                     <div className={styles.formInput}>
                         <label className={styles.inputText}>Email</label>
@@ -69,8 +69,9 @@ function Login() {
                     </div>
                     <div className={styles.submit}>
                         <input type="submit" value="Logar" />
-                        <NavLink to="/register">Registrar</NavLink>
                     </div>
+                    <p>Não tem cadastro?<NavLink className={styles.link} to="/register">Registre-se aqui.</NavLink></p>
+                    
                 </form>
             </div>
         </div>

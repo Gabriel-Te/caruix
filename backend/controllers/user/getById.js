@@ -2,7 +2,7 @@ import userModel from "../../models/userModel.js";
 
 const getById = async(req, res) => {
     try {
-        const id = parseInt(req.params.id)
+        const id = req.id
         const userPerId = await userModel.getById(id)
         return res.json({
             success: `usuário ${id} encontrado com sucesso`,

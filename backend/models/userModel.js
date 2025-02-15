@@ -59,7 +59,8 @@ const edit = async(userForm) => {
             data: {
                 name: userForm.name,
                 email: userForm.email,
-                password: userForm.password
+                password: userForm.password,
+                image: userForm.image
             }
         })
     } catch (error) {
