@@ -17,8 +17,9 @@
 }
 
 .container img {
-    width: 100%;
-    max-height: 50%;
+    width: 70%;
+    height: 500px;
+    object-fit: cover ;
 }
 
 .container b {
