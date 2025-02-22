@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# Caruix
+O mais eficiente gerenciador de estoque para concessionárias
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## O que é o projeto?
+  O projeto CARUIX foi pensado como um gerenciador de estoque eficiente para concesionárias de veículos, oferecendo funções de cadastro e manipulação de listas de veículos, além de proteção com cadastro e login de funcionários, personalização de espaço de trabalho e muito mais, o projeto atualmente se encontra em desenvolvimento.
 
-## Available Scripts
+## Requerimentos
 
-In the project directory, you can run:
+  Ter o Node instalado ( >= 20.13.1) e adicioná-lo ao path do Windows
+  
+  Ter um servidor ou um pacote de código aberto MYSQL, como o XAMPP, deixar ligado para manipulação do banco MYSQL
+  
+## Funções
 
-### `npm start`
+```
+  1- Criação, edição e remoção de arquivos contendo as informações de veículos e usuários
+  2- Inserção de imagens via hiperlinks
+  3- Sistema de filtro da lista de veículos
+  4- Gráficos contendo informações importantes
+  5- Sistema de cadastro e login usando token de autenticação
+  6- Estado Local de items para uso mais eficiente de internet
+  7- Gerador de relatório sobre o estoque(faturamento das vendas, veículos vendidos vs veículos a venda, etc...)
+```
+## Instruções para instalação e implementação do projeto
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1- Baixe o projeto na aba Code do repositório, ou em um terminal GIT, execute `git clone https://github.com/Gabriel-Te/caruix.git`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+2- Com o projeto aberto, execute no terminal `npm i` para instalar todas as dependencias necessárias
 
-### `npm test`
+3- Cheque o arquivo .env-sample, lá terá algumas constantes usadas no código, renomeie PORT para a porta do BackEnd que você queira que ele escute, DATABASE_URL como um link da sua Database, BASE_BACKEND_URL trata-se da url que será exibida ao acionamento do BackEnd, é apenas semântico, e a SECRET, sendo uma constante usada nos processos de criptografia, escolha uma bem extensa e aleatória por precaução, com tudo isso feito, renomeie o arquivo para `.env`.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+4- Certifique-se de ter uma aplicação MYSQL para executar os comandos do prisma `npx prisma db push` e `npx prisma generate` no terminal, assim, o banco será criado na database que você escolheu no .env com base no `schema.prisma`.
 
-### `npm run build`
+5- Com tudo definido, crie 2 terminais e execute em um deles `npm start`(liga o React Frontend) e, no outro, `npm run server`(liga o nosso Backend com --watch), os comandos podem ser alterados na `package.json`.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Pronto! agora é só acessar a aplicação no LocalHost
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Imagens do Projeto (ainda em desenvolvimento)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Login
+![Login](https://github.com/user-attachments/assets/54952659-9e3a-4d8d-a8dc-aaaacb161b04)
+## Registro
+![Registro](https://github.com/user-attachments/assets/0968ea14-6543-4985-b51f-4cacb6ba3c41)
+## Catálogo de veículos
+![Catálogo de veículos](https://github.com/user-attachments/assets/e855b409-7cce-45da-a2f3-daf2f0162f8d)
+## Catálogo de veículos com filtro
+![Catálogo de veículos com filtro](https://github.com/user-attachments/assets/11a97964-e29d-4ec6-820b-b81090153739)
+## Tela inicial com gráficos
+![Tela inicial com gráficos](https://github.com/user-attachments/assets/20088520-8eb1-470d-8d14-b0b22e12c7a7)
+## Tela do veículo quando pressionado
+![Tela do veículo quando pressionado](https://github.com/user-attachments/assets/75a24400-8d41-4016-9010-6a729227a2a4)
+## Tela de formulário dos veículos
+![Tela de formulário dos veículos](https://github.com/user-attachments/assets/c5a6888c-4985-4ef1-a6ff-15eff4f5873d)
+## Pop up de exclusão
+![Pop up de exclusão](https://github.com/user-attachments/assets/d5e6ff2c-a17a-46a4-9247-89a4c2eb95a2)
+## Tela de usuário com formulario de edição
+![Tela de usuário com formulario de edição](https://github.com/user-attachments/assets/50a18595-110a-4fb9-b65a-f0e9a35fd3dd)
+## Tela de relatório
+![Tela de relatório](https://github.com/user-attachments/assets/533167c2-874c-4ca4-b486-c385b84df7ca)
+## Relatório de estoque
+![Relatório de estoque](https://github.com/user-attachments/assets/6f320481-7081-4487-b227-6fa8643b4e8c)
