@@ -1,16 +1,16 @@
-# Caruix
+# 🚗Caruix
 O mais eficiente gerenciador de estoque para concessionárias
 
-## O que é o projeto?
+## 📖O que é o projeto?
   O projeto CARUIX foi pensado como um gerenciador de estoque eficiente para concesionárias de veículos, oferecendo funções de cadastro e manipulação de listas de veículos, além de proteção com cadastro e login de funcionários, personalização de espaço de trabalho e muito mais, o projeto atualmente se encontra em desenvolvimento.
 
-## Requerimentos
+## 🛒Requerimentos
 
   Ter o Node instalado ( >= 20.13.1) e adicioná-lo ao path do Windows
   
   Ter um servidor ou um pacote de código aberto MYSQL, como o XAMPP, deixar ligado para manipulação do banco MYSQL
   
-## Funções
+## ⚙️Funções
 
 ```
   1- Criação, edição e remoção de arquivos contendo as informações de veículos e usuários
@@ -21,7 +21,7 @@ O mais eficiente gerenciador de estoque para concessionárias
   6- Estado Local de items para uso mais eficiente de internet
   7- Gerador de relatório sobre o estoque(faturamento das vendas, veículos vendidos vs veículos a venda, etc...)
 ```
-## Instruções para instalação e implementação do projeto
+## 💿Instruções para instalação e implementação do projeto
 
 1- Baixe o projeto na aba Code do repositório, ou em um terminal GIT, execute `git clone https://github.com/Gabriel-Te/caruix.git`
 
@@ -35,7 +35,7 @@ O mais eficiente gerenciador de estoque para concessionárias
 
 Pronto! agora é só acessar a aplicação no LocalHost
 
-# Imagens do Projeto (ainda em desenvolvimento)
+# 📸Imagens do Projeto (ainda em desenvolvimento)
 
 ## Login
 ![Login](https://github.com/user-attachments/assets/54952659-9e3a-4d8d-a8dc-aaaacb161b04)
