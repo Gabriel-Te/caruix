@@ -17,8 +17,7 @@
 }
 
 .container img {
-    width: 70%;
-    height: 500px;
+    width: 100%;
     object-fit: cover ;
 }
 

@@ -30,7 +30,7 @@ function CreateVehicle() {
                 })
                 if (result.status === 401) {
                     console.log('Token Inválido ou expirado. Retornando a tela de registro');
-                    navigate('/register')
+                    navigate('/login')
                     logout()
                 }
                 if (result.ok) {

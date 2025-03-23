@@ -1,11 +1,8 @@
-import { useNavigate } from 'react-router-dom';
 import styles from './FormVehicle.module.css'
 import { useState } from 'react';
-import useUserIsLogged from '../stores/useUserIsLogged.js';
 
 function FormVehicle({ actionFunction, inicialValues }) {
 
-    const userIsLogged = useUserIsLogged((state) => state.userIsLogged)
 
     const [FormValues, setFormValues] = useState(
         inicialValues,

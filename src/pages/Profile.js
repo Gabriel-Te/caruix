@@ -27,7 +27,7 @@ function Profile() {
                 credentials: 'include'
             })
             if (result.status === 401) {
-                navigate('/register')
+                navigate('/login')
                 logout()
                 toast.error('Sem autorização, retornando a página de registro')
             }
@@ -83,7 +83,7 @@ function Profile() {
             })
             if (result.status === 401) {
                 console.error('Sem autorização, retornando a página de registro')
-                navigate('/register')
+                navigate('/login')
                 logout()
                 toast.error('Sem autorização, retornando a página de registro')
             }

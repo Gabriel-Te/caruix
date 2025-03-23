@@ -54,7 +54,7 @@ function Header() {
                 <NavLink className={styles.profileImg} to={'/profile'}>
                     <img
                     src={image}
-                    alt="image"
+                    alt="profileImage"
                     onLoad={() => setImage(image)}
                     onError={() => setImage(imageprofile)}
                     />
