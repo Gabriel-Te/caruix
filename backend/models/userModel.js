@@ -42,7 +42,8 @@ const create = async(userForm) => {
             data:{
                 name: userForm.name,
                 email: userForm.email,
-                password: userForm.password
+                password: userForm.password,
+                image: 'Image'
             }
         })
     } catch (error) {

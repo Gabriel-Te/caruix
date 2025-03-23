@@ -8,18 +8,18 @@ datasource db {
 }
 
 model car {
-  id     Int      @id @unique(map: "id_UNIQUE") @default(autoincrement())
-  brand  String?  @db.VarChar(45)
-  model  String?  @db.VarChar(45)
-  price  Int?
-  status Boolean?
-  image  String?  @db.VarChar(512)
+  id     Int     @id @unique(map: "id_UNIQUE") @default(autoincrement())
+  brand  String  @db.VarChar(45)
+  model  String  @db.VarChar(45)
+  price  Int
+  status Boolean
+  image  String  @db.VarChar(512)
 }
 
 model user {
   id       Int     @id @unique(map: "id_UNIQUE") @default(autoincrement())
   name     String? @db.VarChar(50)
-  email    String? @db.VarChar(200) @unique
+  email    String? @unique @db.VarChar(200)
   password String? @db.VarChar(200)
-  image  String?  @db.VarChar(512) @default("Image")
+  image    String? @db.VarChar(512)
 }
