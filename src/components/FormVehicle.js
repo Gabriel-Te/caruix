@@ -20,6 +20,11 @@ function FormVehicle({ actionFunction, inicialValues }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log(FormValues)
+        if (FormValues.status === "1") {
+            FormValues.status = true
+        } else { FormValues.status = false }
+        actionFunction(FormValues)
         setFormValues({
             brand: "",
             model: "",
@@ -27,11 +32,6 @@ function FormVehicle({ actionFunction, inicialValues }) {
             status: "1",
             image: ""
         })
-        console.log(FormValues)
-        if (FormValues.status === "1") {
-            FormValues.status = true
-        } else { FormValues.status = false }
-        actionFunction(FormValues)
     }
 
     return (

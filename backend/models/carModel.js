@@ -11,18 +11,18 @@ const CarSchema = z.object({
         required_error: 'Marca é obrigatório',
         invalid_type_error: 'Marca deve ser uma string'
     })
-    .max(50, {message : "tamanho máximo de 50 caracteres"}),
+    .max(50, {message : "Marca deve ter tamanho máximo de 50 caracteres"}),
     model: z.string({
         required_error: 'Modelo é obrigatório',
         invalid_type_error: 'Modelo deve ser uma string'
     })
-    .max(100, {message: "máximo de 100 caracteres"}),
+    .max(100, {message: "Modelo deve ter tamanho máximo de 100 caracteres"}),
     price: z.number({
         required_error: 'Preço é obrigatório',
         invalid_type_error: 'Preço deve ser um número'
     })
-    .min(4, {message: "mínimo de 4 caracteres"})
-    .max(11, {message : "máximo de 11 caracteres"}),
+    .min(4, {message: "Preço deve ter tamanho mínimo de 4 caracteres"})
+    .max(99999999999, {message : "Preço deve ter tamanho máximo de 11 caracteres"}),
     status: z.boolean({
         required_error: "Status é obrigatório",
         invalid_type_error : "Status precisa ser booleano"
@@ -31,8 +31,14 @@ const CarSchema = z.object({
         required_error: "Imagem é obrigatório",
         invalid_type_error: "imagem tem que ser String"
     })
-    .min(3, {message : "mínimo de 3 caracteres"})
+    .min(3, {message : "Imagem deve ter tamanho mínimo de 3 caracteres"})
+    .url("Imagem deve ter uma URL válida")
 });
+
+const validateCarCreate = (carForm) => {
+    const partialCarCreate = CarSchema.partial({id: true})
+    return partialCarCreate.safeParse(carForm)
+}
 
 const getAll = async () => {
     try {
@@ -103,4 +109,4 @@ const edit = async (editedCar) => {
     }
 };
 
-export default { getAll, getById, create, remove, edit };
+export default { getAll, getById, create, remove, edit, validateCarCreate };

@@ -29,12 +29,17 @@ function CreateVehicle() {
                     body: JSON.stringify(FormValues),
                     credentials: 'include'
                 })
-                if (result.status === 401) {
+                if(result.status === 400) {
+                    const message = await result.json()
+                    const errors = message.errors
+                    errors.forEach((error) => toast.warning(error))
+                }
+                else if (result.status === 401) {
                     console.log('Token Inválido ou expirado. Retornando a tela de registro');
                     navigate('/login')
                     logout()
                 }
-                if (result.ok) {
+                else if (result.ok) {
                     const data = await result.json()
                     const newCar = data.newCar
                     addNewCar(newCar)
