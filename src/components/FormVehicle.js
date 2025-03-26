@@ -1,14 +1,14 @@
 import styles from './FormVehicle.module.css'
 import { useState } from 'react';
 
-function FormVehicle({ actionFunction, inicialValues }) {
+function FormVehicle({ actionFunction, eraseData, inicialValues }) {
 
 
     const [FormValues, setFormValues] = useState(
         inicialValues,
-        inicialValues.status === false ? 
-        (inicialValues.status = "0") : 
-        (inicialValues.status = "1"))
+        inicialValues.status === false ?
+            (inicialValues.status = "0") :
+            (inicialValues.status = "1"))
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -25,13 +25,15 @@ function FormVehicle({ actionFunction, inicialValues }) {
             FormValues.status = true
         } else { FormValues.status = false }
         actionFunction(FormValues)
-        setFormValues({
-            brand: "",
-            model: "",
-            price: 0,
-            status: "1",
-            image: ""
-        })
+        if (eraseData) {
+            setFormValues({
+                brand: "",
+                model: "",
+                price: 0,
+                status: "1",
+                image: ""
+            })
+        }//eraseData is boolean
     }
 
     return (
@@ -62,25 +64,25 @@ function FormVehicle({ actionFunction, inicialValues }) {
                 />
                 <p>Status: </p>
                 <div className={styles.statusArea}>
-                <p>Vendido</p>
-                <input
-                    type="radio"
-                    name='status'
-                    value="0"
-                    checked={FormValues.status === "0"}
-                    onChange={handleInputChange}
-                />
+                    <p>Vendido</p>
+                    <input
+                        type="radio"
+                        name='status'
+                        value="0"
+                        checked={FormValues.status === "0"}
+                        onChange={handleInputChange}
+                    />
                 </div>
 
                 <div className={styles.statusArea}>
-                <p>À venda</p>
-                <input
-                    type="radio"
-                    name='status'
-                    value="1"
-                    checked={FormValues.status === "1"}
-                    onChange={handleInputChange}
-                />
+                    <p>À venda</p>
+                    <input
+                        type="radio"
+                        name='status'
+                        value="1"
+                        checked={FormValues.status === "1"}
+                        onChange={handleInputChange}
+                    />
                 </div>
 
 

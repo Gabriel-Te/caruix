@@ -26,12 +26,17 @@ function EditVehicle() {
                     body: JSON.stringify(CarEdited),
                     credentials: 'include'
                 })
-                if (result.status === 401) {
+                if(result.status === 400) {
+                    const response = await result.json()
+                    const errors = response.errors
+                    errors.forEach((error) => toast.warning(error))
+                }
+                else if (result.status === 401) {
                     console.log('Token Inválido ou expirado. Retornando a tela de registro');
                     navigate('/login')
                     logout()
                 }
-                if (result.ok) {
+                else if (result.ok) {
                     editCar(CarEdited, idInt)
                     const response = await result.json()
                     console.log('resposta do server', response)

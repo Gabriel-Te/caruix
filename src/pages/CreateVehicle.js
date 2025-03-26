@@ -54,7 +54,11 @@ function CreateVehicle() {
 
     return (
         <div className={styles.box}>
-            <FormVehicle actionFunction={sendForm} inicialValues={values} />
+            <FormVehicle
+                actionFunction={sendForm}
+                inicialValues={values}
+                eraseData={true}
+            />
         </div>
     )
 }

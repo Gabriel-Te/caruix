@@ -40,6 +40,12 @@ const validateCarCreate = (carForm) => {
     return partialCarCreate.safeParse(carForm)
 }
 
+const validateCarEdit = (carForm) => {
+    return CarSchema.safeParse(carForm)
+}
+
+
+
 const getAll = async () => {
     try {
         return await prisma.car.findMany()
@@ -109,4 +115,4 @@ const edit = async (editedCar) => {
     }
 };
 
-export default { getAll, getById, create, remove, edit, validateCarCreate };
+export default { getAll, getById, create, remove, edit, validateCarCreate, validateCarEdit };
