@@ -3,6 +3,7 @@ import styles from './CreateVehicle.module.css'
 import useCarStore from '../stores/useCarStore.js';
 import useUserIsLogged from '../stores/useUserIsLogged.js';
 import { useNavigate } from "react-router-dom"
+import { toast } from 'react-toastify';
 
 function CreateVehicle() {
     const addNewCar = useCarStore((state) => state.addNewCar)
@@ -37,8 +38,9 @@ function CreateVehicle() {
                     const data = await result.json()
                     const newCar = data.newCar
                     addNewCar(newCar)
-                    navigate('/catalog', {state: {message: 'Dados enviados com sucesso'}})
+                    navigate('/catalog')
                     console.log("resposta do server", data)
+                    toast.success('Veículo criado com sucesso')
                 }
             } catch (error) {
                 console.log('erro ao passar os dados', error)

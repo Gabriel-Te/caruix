@@ -5,6 +5,7 @@ import styles from './CardPressed.module.css'
 import AdviceMessage from "../components/AdviceMessage.js"
 import useCarStore from "../stores/useCarStore.js"
 import useUserIsLogged from '../stores/useUserIsLogged.js';
+import { toast } from "react-toastify"
 
 function CardPressed() {
 
@@ -40,8 +41,10 @@ function CardPressed() {
             }
             if (result.ok) {
                 console.log(`veículo ${id} removido`)
+                navigate('/catalog')
                 removeCar(idInt)
-                navigate('/catalog', {state: {message: `veículo ${id} removido`}});
+                toast.success(`veículo ${id} removido`)
+
             }
         } catch (error) {
             console.log(`erro ao remover o veículo ${id}`, error)

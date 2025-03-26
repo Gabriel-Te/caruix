@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import useCarStore from '../stores/useCarStore.js'
 import useUserIsLogged from '../stores/useUserIsLogged.js';
+import { toast } from 'react-toastify'
 
 function EditVehicle() {
     const navigate = useNavigate()
@@ -34,8 +35,10 @@ function EditVehicle() {
                     editCar(CarEdited, idInt)
                     const response = await result.json()
                     console.log('resposta do server', response)
+                    navigate(`/cardpressed/${id}`)
+                    toast.success(`Veículo editado com sucesso`)
                     //you can pass an value while navigate, receive this value using location.state.{objeto}
-                    navigate(`/cardpressed/${id}`,{state: {message : 'veículo editado com sucesso'}})
+                    // navigate(`/cardpressed/${id}`,{state: {message : 'veículo editado com sucesso'}})
                 }
             } catch (error) {
                 console.log('erro ao enviar o veiculo', error)

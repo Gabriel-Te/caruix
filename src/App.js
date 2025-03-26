@@ -64,15 +64,15 @@ function App() {
 
 
   useEffect(() => {
-    userIsLogged === true ? getCars() : navigate('/register') 
+    userIsLogged === true ? getCars() : navigate('/login') 
   }, [userIsLogged])
 
-  useEffect(() => {
-    if (location.state && location.state.message) {
-      toast.success(`${location.state.message}`)
-      navigate(location.pathname, { replace: true, state: {} })
-    }
-  }, [location.state])
+  // useEffect(() => {
+  //   if (location.state && location.state.message) {
+  //     toast.success(`${location.state.message}`)
+  //     navigate(location.pathname, { replace: true, state: {} })
+  //   }
+  // }, [location.state])
 
 
   return (
