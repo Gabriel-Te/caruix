@@ -10,6 +10,7 @@ function Catalog() {
     const cars = useCarStore((state) => state.cars);
     const [carItems, setCarItems] = useState([]);
     const filterByPrice = useCarStore((state) => state.filterByPrice);
+    const separeByBrand = useCarStore((state) => state.separeByBrand);
     const [tabActive, setTabActive] = useState(false);
 
 
@@ -18,7 +19,7 @@ function Catalog() {
         maxValue: null
     });
 
-    useEffect(()=> {
+    useEffect(() => {
         setCarItems(cars)
     }, [cars])
 
@@ -41,7 +42,7 @@ function Catalog() {
     };
 
     console.log(carItems)
-    
+
 
     return (
         <div className={styles.box}>
@@ -49,23 +50,30 @@ function Catalog() {
                 <button onClick={tabActive === false ? () => { setTabActive(true) } : () => setTabActive(false)}>Filtrar por:</button>
                 {tabActive && (
                     <div className={styles.tabArea}>
-                        <p>Valor:</p>
                         <form onSubmit={handleSubmit}>
-                            <label>Valor mínimo</label>
-                            <input
-                                type="number"
-                                value={filterValues.minValue}
-                                name="minValue"
-                                onChange={handleChange} />
-                            <label>Valor máximo</label>
-                            <input
-                                type="number"
-                                value={filterValues.maxValue}
-                                name="maxValue"
-                                onChange={handleChange}
-                            />
+                            <div className={styles.tabAreaType}>
+                                <p>Valor:</p>
+                                <label>Valor mínimo</label>
+                                <input
+                                    type="number"
+                                    value={filterValues.minValue}
+                                    name="minValue"
+                                    onChange={handleChange} />
+                                <label>Valor máximo</label>
+                                <input
+                                    type="number"
+                                    value={filterValues.maxValue}
+                                    name="maxValue"
+                                    onChange={handleChange}
+                                />
+                            </div>
+
                             <button type="submit">Filtrar</button>
                         </form>
+                        <button onClick={() => {
+                            const a = separeByBrand()
+                            console.log(a)
+                        }}></button>
                     </div>
                 )}
             </div>

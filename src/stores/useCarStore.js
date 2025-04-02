@@ -7,9 +7,9 @@ const useCarStore = create((set, get) => ({
         set({ cars: carsData });
     },
 
-    addNewCar : (newCarData) => {
+    addNewCar: (newCarData) => {
         set((state) => ({
-            cars : [...state.cars, newCarData]
+            cars: [...state.cars, newCarData]
         }))
     },
 
@@ -22,37 +22,37 @@ const useCarStore = create((set, get) => ({
     editCar: (newCarEdit, id) => {
         set((state) => ({
             cars: state.cars.map((car) =>
-                car.id === id ? { ...car, ...newCarEdit } : car 
+                car.id === id ? { ...car, ...newCarEdit } : car
             ),
         }));
     },
 
-    removeCar : (id) => {
+    removeCar: (id) => {
         set((state) => ({
-            cars : state.cars.filter((car) =>
-                car.id !== id  
+            cars: state.cars.filter((car) =>
+                car.id !== id
             )
         }))
     },
 
     //tools
 
-    separePerStatus : () => {
+    separePerStatus: () => {
         const cars = get().cars
         const sellCars = []
         const soldCars = []
 
         cars.forEach((car) => {
-            if(car.status === true) {
+            if (car.status === true) {
                 sellCars.push(car)
-            }else {
+            } else {
                 soldCars.push(car)
             }
         })
-        return ({sellCars, soldCars})
+        return ({ sellCars, soldCars })
     },
 
-    filterByPrice : (minPrice, maxPrice) => {
+    filterByPrice: (minPrice, maxPrice) => {
         const cars = get().cars
         if (!minPrice && !maxPrice) {
             return cars;
@@ -65,8 +65,28 @@ const useCarStore = create((set, get) => ({
             car.price >= minPrice && car.price <= maxPrice
         )
         return carsFiltred
-    }
+    },
 
+    separeByBrand: (brand) => {
+        const cars = get().cars
+        if (brand) {
+            return cars.filter((car) => car.brand == brand)
+        } else {
+            const carsSepared = []
+            cars.forEach(car => {
+                const brandEntry = carsSepared.find((item) => item.brandGroup === car.brand)
+                if(!brandEntry) {
+                    carsSepared.push({brandGroup: car.brand, cars : [car] })
+                }
+                else{
+                    //brandEntry retorna uma referência a carsSepared no objeto encontrado
+                    console.log(brandEntry)
+                    brandEntry.cars.push(car)
+                }
+            })
+            return carsSepared
+        }
+    }
 }));
 
 export default useCarStore;

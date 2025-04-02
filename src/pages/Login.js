@@ -23,7 +23,7 @@ function Login() {
                 toast.error('Email ou senha inválidos')
             }
             else if(response.ok){
-                console.log('deu certo')
+                toast.success('Login efetuado')
                 login()
                 navigate('/')
             }
