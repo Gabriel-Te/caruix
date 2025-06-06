@@ -5,6 +5,6 @@ const useToolsStore = create((set) =>({
 
     hideNav : () => set({navIsHidden : true}),
     showNav : () => set({navIsHidden : false}),
-}))
+}));
 
 export default useToolsStore

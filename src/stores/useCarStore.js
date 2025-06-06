@@ -67,24 +67,35 @@ const useCarStore = create((set, get) => ({
         return carsFiltred
     },
 
-    separeByBrand: (brand) => {
-        const cars = get().cars
+    countBrandsInCars: () => {
+        const cars = get().cars;
+        const brandsInCars = [];
+
+        cars.forEach((car) => {
+            const existingBrand = brandsInCars.find(item => item.brand === car.brand);
+
+            if (existingBrand) {
+                existingBrand.quantBrand += 1;
+            } else {
+                brandsInCars.push({
+                    brand: car.brand,
+                    quantBrand: 1
+                });
+            }
+        });
+
+        return brandsInCars;
+    },
+
+    filterByBrand: (cars, brand) => {
+        console.log(cars)
         if (brand) {
-            return cars.filter((car) => car.brand == brand)
+            const carsFiltred = cars.filter((car) =>
+                car.brand == brand
+            )
+            return carsFiltred
         } else {
-            const carsSepared = []
-            cars.forEach(car => {
-                const brandEntry = carsSepared.find((item) => item.brandGroup === car.brand)
-                if(!brandEntry) {
-                    carsSepared.push({brandGroup: car.brand, cars : [car] })
-                }
-                else{
-                    //brandEntry retorna uma referência a carsSepared no objeto encontrado
-                    console.log(brandEntry)
-                    brandEntry.cars.push(car)
-                }
-            })
-            return carsSepared
+            return cars = get().cars
         }
     }
 }));

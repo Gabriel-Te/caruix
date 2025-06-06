@@ -34,6 +34,15 @@
     color: aliceblue;
 }
 
+.tabArea form{
+    gap: 10px;
+    display: flex;
+}
+.botaoFiltro{
+    gap: 10px;
+    display: block;
+}
+
 .tabArea input{
     margin: 5px 0;
 }

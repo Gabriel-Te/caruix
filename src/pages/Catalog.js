@@ -10,13 +10,15 @@ function Catalog() {
     const cars = useCarStore((state) => state.cars);
     const [carItems, setCarItems] = useState([]);
     const filterByPrice = useCarStore((state) => state.filterByPrice);
-    const separeByBrand = useCarStore((state) => state.separeByBrand);
+    const filterByBrand = useCarStore((state) => state.filterByBrand);
+    const countBrandsInCars = useCarStore((state) => state.countBrandsInCars);
     const [tabActive, setTabActive] = useState(false);
 
 
     const [filterValues, setFilterValues] = useState({
         minValue: null,
-        maxValue: null
+        maxValue: null,
+        brand: null
     });
 
     useEffect(() => {
@@ -33,15 +35,19 @@ function Catalog() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const filtredCars = filterByPrice(
+        const filtredCarsByPrice = filterByPrice(
             filterValues.minValue,
             filterValues.maxValue
         );
-        setCarItems(filtredCars);
+
+        const filtredCarsByBrand = filterByBrand(
+            filtredCarsByPrice,
+            filterValues.brand
+        )
+        setCarItems(filtredCarsByBrand)
+
         toast.success('Filtro aplicado')
     };
-
-    console.log(carItems)
 
 
     return (
@@ -52,7 +58,6 @@ function Catalog() {
                     <div className={styles.tabArea}>
                         <form onSubmit={handleSubmit}>
                             <div className={styles.tabAreaType}>
-                                <p>Valor:</p>
                                 <label>Valor mínimo</label>
                                 <input
                                     type="number"
@@ -67,13 +72,20 @@ function Catalog() {
                                     onChange={handleChange}
                                 />
                             </div>
-
-                            <button type="submit">Filtrar</button>
+                            <div className={styles.tabAreaType}>
+                                <label>Digitar marcas</label>
+                                <select name="brand" onChange={handleChange}>
+                                    <option value="">Selecione</option>
+                                    {
+                                        countBrandsInCars().map((item) => (
+                                            <option value={item.brand}>{item.brand + `(${item.quantBrand})`}</option>
+                                        ))
+                                    }
+                                </select>
+                            </div>
                         </form>
-                        <button onClick={() => {
-                            const a = separeByBrand()
-                            console.log(a)
-                        }}></button>
+
+                        <button onClick={handleSubmit} type="submit">Filtrar</button>
                     </div>
                 )}
             </div>
